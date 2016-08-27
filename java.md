@@ -59,3 +59,84 @@
 #### Item 20 태그 달린 클래스 대신 클래스 계층을 활용
 #### Item 21 전략을 표현하고 싶을 때는 함수 객체를 사용
 #### Item 22 멤버 클래스는 가능하면 static으로 선언
+
+## Java 8 in Action
+
+> Stream API  
+> Method reference, Lambda  
+> Interface default method
+
+### Stream API
+
+> 스트림 : 한 번에 한 개씩 만들어지는 연속적인 데이터 항목들의 모임  
+> 질의 언어(고수준 언어)로 원하는 동작을 표현하면 최적의 저수준 실행 방법을 선택하여 동작  
+> 스레드를 사용하지 않으면서 병렬성을 얻을 수 있다.  
+
+```java
+import static java.util.stream.Collectors.toList;
+Map<Currency, List<Transaction>> transactionsByCurrencies =
+    transactions.stream()
+                .filter((Transaction) t) -> t.getPrice() > 1000)
+                .collect(groupingBy(Transaction::getCurrency));
+
+// 순차 처리 방식
+List<Apple> heavyApples = inventory.stream().filter((Apple a) -> a.getWeight() > 150)
+                                            .collect(toList());
+
+// 병렬 처리 방식
+List<Apple> heavyApples = inventory.parallelStream().filter((Apple a) -> a.getWeight() > 150)
+                                                    .collect(toList());
+```
+
+### Method Reference
+
+> 동작 파라미터화  
+> 함수형 프로그래밍  
+> pure, side-effect-free, stateless function : shared mutable data에 접근하지 않는 함수  
+
+* Before - 익명 클래스
+
+```java
+File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
+    public boolean accept(File file) {
+        return file.isHidden();
+    }
+});
+```
+
+* After - 메소드 레퍼런스
+
+```java
+File[] hiddenFiles = new File(".").listFiles(File::isHidden);
+```
+
+* Lambda
+
+```java
+// 메소드 명세 : Predicate 함수 인터페이스
+public static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> p);
+
+// 메소드 호출 : 기존 함수 사용 또는 새로운 람다 함수 정의
+filterApples(inventory, Apple::isGreenApple);
+filterApples(inventory, Apple::isHeavyApple);
+filterApples(inventory, (Apple a) -> "green".equals(a.getColor()));
+filterApples(inventory, (Apple a) -> a.getWeight() > 150);
+filterApples(inventory, (Apple a) -> a.getWeight() < 80 || "brown".equals(a.getColor()));
+
+// Comparator
+inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
+
+// Runnable
+Thread t = new Thread(() -> System.out.println(“Hello world”));
+
+// GUI
+Button.setOnAction((ActionEvent event) -> label.setText("Sent"));
+```
+
+### Interface default method
+
+```java
+default void sort(Comparator<? super E> c) {
+    Collections.sort(this, c);
+}
+```

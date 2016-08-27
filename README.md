@@ -1,6 +1,7 @@
 # 개발 정리 노트
 
 <https://trello.com/b/DlJ9r6tg/dev-ref>
+<https://okdevtv.com/md/list.html>
 
 # 마크다운 작성 규칙
 

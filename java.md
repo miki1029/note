@@ -110,7 +110,21 @@ File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
 File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 ```
 
-* Lambda
+#### Lambda
+
+```java
+(String s) -> s.length()
+(Apple a) -> a.getWeight() > 150
+(int x, int y) -> {
+    System.out.println("Result:");
+    System.out.println(x+y);
+}
+() -> 42
+```
+
+* 함수형 인터페이스 : **하나의** 추상 메소드를 지정하는 인터페이스
+  * ```@FunctionalInterface``` : 함수형 인터페이스를 강제하는 어노테이션
+  * default method는 추가로 가질 수 있다.
 
 ```java
 // 메소드 명세 : Predicate 함수 인터페이스

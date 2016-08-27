@@ -7,6 +7,7 @@
 
 ## IDE
 [IntelliJ IDEA Tips](http://tiveloper.tistory.com/category/IDE%20%26%20Apps/IntelliJ%20Idea)  
+[IntelliJ에서 Spring Devtools와 매크로](http://sbcoba.tistory.com/36)  
 
 ## etc
 [맥 커맨드라인 유틸리티](http://www.mitchchn.me/2014/os-x-terminal/?x)  

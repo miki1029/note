@@ -94,21 +94,22 @@ List<Apple> heavyApples = inventory.parallelStream().filter((Apple a) -> a.getWe
 > 함수형 프로그래밍  
 > pure, side-effect-free, stateless function : shared mutable data에 접근하지 않는 함수  
 
-* Before - 익명 클래스
-
 ```java
+// Before - 익명 클래스
 File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
     public boolean accept(File file) {
         return file.isHidden();
     }
 });
-```
 
-* After - 메소드 레퍼런스
-
-```java
+// After - 메소드 레퍼런스
 File[] hiddenFiles = new File(".").listFiles(File::isHidden);
+
+// Comparator에 새로 추가된 comparing 메소드
+inventory.sort(comparing(Apple::getWeight));
 ```
+
+* ```Comparator``` : <https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html>
 
 #### Lambda
 
@@ -127,10 +128,8 @@ filterApples(inventory, (Apple a) -> a.getWeight() < 80 || "brown".equals(a.getC
 
 // Comparator
 inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
-
 // Runnable
 Thread t = new Thread(() -> System.out.println(“Hello world”));
-
 // GUI
 Button.setOnAction((ActionEvent event) -> label.setText("Sent"));
 ```
@@ -143,6 +142,11 @@ Button.setOnAction((ActionEvent event) -> label.setText("Sent"));
     System.out.println(x+y);
 }
 () -> 42
+Callable<Integer> c = () -> 42;
+PrivilegedAction<Integer> c = () -> 42;
+Predicate<String> p = s -> list.add(s); // 특별한 void 호환 규칙
+Comparator<Apple> c = (a1, a2) -> a1.getWeight().compareTo(a2.getWeight()); // 형식 추론
+Predicate<Apple> p = a -> "green".equals(a.getColor()); // 파라미터 1개이면 괄호 생략
 ```
 
 * 함수형 인터페이스 : **하나의** 추상 메소드를 지정하는 인터페이스
@@ -171,6 +175,19 @@ public interface IntPredicate {
     boolean test(int t);
 }
 // DoublePredicate, IntConsumer, LongBinaryOperator, IntFunction, ToIntFunction<T>, IntToDoubleFunction, ...
+```
+
+* 람다 캡처링(capturing lambda)
+  * 인스턴스 변수, 정적 변수 : 자유롭게 캡처
+  * 지역 변수 : final이거나 final처럼 사용해야 함(스택에 할당되는데 스레드로 실행되면 접근 불가능하여 복사본을 제공)
+
+* 람다의 메소드 레퍼런스 표현
+
+```java
+(Apple a) -> a.getWeight() // Apple::getWeight
+() -> Thread.currentThread().dumpStack() // Thread.currentThread::dumpStack
+(str, i) -> str.substring(i) // String.substring
+(String s) -> System.out.println(s) // System.out::println
 ```
 
 ### Interface default method

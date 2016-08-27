@@ -30,6 +30,22 @@
 ### 4장 클래스와 인터페이스
 
 #### Item 13 클래스와 멤버의 접근 권한을 최소화
+
+* 정보 은닉, 캡슐화
+  * 의존성을 낮춘다.(decouple)
+  * 각자 개발, 시험, 최적화, 이해, 변경
+  * 유지보수성, 성능 튜닝(프로파일링), 재사용 가능성, 위험성 낮춤
+* package-private class
+  * 사용하는 곳이 하나라면 private 중첩 클래스 고려
+* private, package-private member
+  * Serializable을 구현하는 클래스의 멤버라면 공개 API 속으로 새어나갈 수도 있다.
+* public static final member
+  * 핵심적인 상수, 기본 자료형 값 또는 변경 불가능 객체 참조
+  * 배열 필드처럼 변경 가능한 필드를 사용해서는 안된다.
+    * ```public static final List<Thing> VALUES = Collections.unmodifiableList(Arrays.asList(PRIVATE_VALUES));```
+    * 위와 같이 변경 불가능한 리스트로 대체
+    * 또는 해당 배열을 복사하여 반환하는 public 메소드를 추가
+
 #### Item 14 public 클래스 안에는 public 필드를 두지 말고 접근자 메소드를 사용
 #### Item 15 변경 가능성을 최소화
 #### Item 16 계승하는 대신 구성

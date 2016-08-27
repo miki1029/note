@@ -1,5 +1,6 @@
 # 개발 정리 노트
 
+<http://d2.naver.com/helloworld>  
 <https://trello.com/b/DlJ9r6tg/dev-ref>  
 <https://okdevtv.com/md/list.html>  
 

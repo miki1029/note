@@ -112,19 +112,7 @@ File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 
 #### Lambda
 
-```java
-(String s) -> s.length()
-(Apple a) -> a.getWeight() > 150
-(int x, int y) -> {
-    System.out.println("Result:");
-    System.out.println(x+y);
-}
-() -> 42
-```
-
-* 함수형 인터페이스 : **하나의** 추상 메소드를 지정하는 인터페이스
-  * ```@FunctionalInterface``` : 함수형 인터페이스를 강제하는 어노테이션
-  * default method는 추가로 가질 수 있다.
+* 예제
 
 ```java
 // 메소드 명세 : Predicate 함수 인터페이스
@@ -145,6 +133,44 @@ Thread t = new Thread(() -> System.out.println(“Hello world”));
 
 // GUI
 Button.setOnAction((ActionEvent event) -> label.setText("Sent"));
+```
+
+```java
+(String s) -> s.length()
+(Apple a) -> a.getWeight() > 150
+(int x, int y) -> {
+    System.out.println("Result:");
+    System.out.println(x+y);
+}
+() -> 42
+```
+
+* 함수형 인터페이스 : **하나의** 추상 메소드를 지정하는 인터페이스
+  * ```@FunctionalInterface``` : 함수형 인터페이스를 강제하는 어노테이션
+  * 함수 디스크립터(function descriptor) : 함수형 인터페이스의 추상 메소드 시그너처
+  * default method는 추가로 가질 수 있다.
+  * 대표적인 함수형 인터페이스 : 100p ~ 102p
+  * 검사형 예외를 던지는 동작을 허용하지 않는다.
+
+```java
+// java.util.function
+// 제네릭 함수형 인터페이스
+public interface Predicate<T> {
+    boolean test(T t);
+}
+public interface Consumer<T> {
+    void accept(T t);
+}
+public interface Function<T, R> {
+    R apply(T t);
+}
+// Supplier<T>, UnaryOperator<T>, BinaryOperator<T>, BiPredicate<L, R>, BiConsumer<T, U>, BiFunction<T, U, R>, ...
+
+// 기본형 함수형 인터페이스(boxing 회피)
+public interface IntPredicate {
+    boolean test(int t);
+}
+// DoublePredicate, IntConsumer, LongBinaryOperator, IntFunction, ToIntFunction<T>, IntToDoubleFunction, ...
 ```
 
 ### Interface default method

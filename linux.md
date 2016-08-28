@@ -17,6 +17,7 @@
 5. 기존 home 파티션을 언마운트(unmount)
 6. home2 를 home 으로 마운트 
 
+
 * LVM
 
 ![LVM](https://www.lesstif.com/download/attachments/20775667/image2014-5-21%2017%3A16%3A20.png?version=1&modificationDate=1400659731000&api=v2)

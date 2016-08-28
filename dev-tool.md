@@ -5,6 +5,7 @@
 [누구나 쉽게 이해할 수 있는 Git 입문](http://backlogtool.com/git-guide/kr/)  
 [카카오스토리 웹팀의 코드리뷰 경험](http://www.slideshare.net/OhgyunAhn/ss-61189141)  
 [매끄러운 코드 리뷰를 돕는 10가지 방법](http://www.bloter.net/archives/238819)  
+[iTerm 개발환경 세팅](http://hjh5488.tistory.com/2)  
 
 ## IDE
 [IntelliJ IDEA Tips](http://tiveloper.tistory.com/category/IDE%20%26%20Apps/IntelliJ%20Idea)  

@@ -3,6 +3,7 @@
 <http://d2.naver.com/helloworld>  
 <https://trello.com/b/DlJ9r6tg/dev-ref>  
 <https://okdevtv.com/md/list.html>  
+<http://bit.ly/devbook>  
 
 # 마크다운 작성 규칙
 

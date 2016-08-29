@@ -6,8 +6,8 @@
 [카카오스토리 웹팀의 코드리뷰 경험](http://www.slideshare.net/OhgyunAhn/ss-61189141)  
 [매끄러운 코드 리뷰를 돕는 10가지 방법](http://www.bloter.net/archives/238819)  
 [iTerm 개발환경 세팅](http://hjh5488.tistory.com/2)  
-[ㄴMenlo for Powerline](https://github.com/abertsch/Menlo-for-Powerline/archive/master.zip)
-[ㄴInconsolata for Powerline](https://github.com/powerline/fonts/raw/master/Inconsolata/Inconsolata%20for%20Powerline.otf)
+[ㄴMenlo for Powerline](https://github.com/abertsch/Menlo-for-Powerline/archive/master.zip)  
+[ㄴInconsolata for Powerline](https://github.com/powerline/fonts/raw/master/Inconsolata/Inconsolata%20for%20Powerline.otf)  
 
 ## IDE
 [IntelliJ IDEA Tips](http://tiveloper.tistory.com/category/IDE%20%26%20Apps/IntelliJ%20Idea)  

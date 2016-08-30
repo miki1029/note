@@ -14,3 +14,4 @@
 [귀찮은 기능, jQuery Library 에 맡겨버리자!](http://www.slideshare.net/ssuserd1ca60/jquery-library-63513601)  
 [코드 블록 하이라이팅](http://blog.gaerae.com/2015/09/google-code-prettify.html)  
 [2016년과 이후 Javascript의 동향](http://web-atelier.tistory.com/11)  
+[SPA 스크립트 용량 어디까지 줄일 수 있을까](https://medium.com/little-big-programming/spa-스크립트-용량-어디까지-줄일-수-있을까-69c7e05bb3b3#.1fo9pgf2m)

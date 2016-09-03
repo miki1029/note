@@ -8,7 +8,17 @@
 [iTerm 개발환경 세팅](http://hjh5488.tistory.com/2)  
 [ㄴMenlo for Powerline](https://github.com/abertsch/Menlo-for-Powerline/archive/master.zip)  
 [ㄴInconsolata for Powerline](https://github.com/powerline/fonts/raw/master/Inconsolata/Inconsolata%20for%20Powerline.otf)  
+
+### Git Subtree
 [git subtree를 사용하여 재사용할 코드 독립 시키기](http://readme.skplanet.com/?p=8542)  
+
+```bash
+# static 디렉토리를 subtree/static 브랜치로 split
+git subtree split --prefix=static -b subtree/static
+
+# static 디렉토리를 deploy/static 저장소 master 브랜치로 push
+git subtree push --prefix=static deploy/static master
+```
 
 ## IDE
 [IntelliJ IDEA Tips](http://tiveloper.tistory.com/category/IDE%20%26%20Apps/IntelliJ%20Idea)  

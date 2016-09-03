@@ -8,6 +8,7 @@
 [iTerm 개발환경 세팅](http://hjh5488.tistory.com/2)  
 [ㄴMenlo for Powerline](https://github.com/abertsch/Menlo-for-Powerline/archive/master.zip)  
 [ㄴInconsolata for Powerline](https://github.com/powerline/fonts/raw/master/Inconsolata/Inconsolata%20for%20Powerline.otf)  
+[git subtree를 사용하여 재사용할 코드 독립 시키기](http://readme.skplanet.com/?p=8542)  
 
 ## IDE
 [IntelliJ IDEA Tips](http://tiveloper.tistory.com/category/IDE%20%26%20Apps/IntelliJ%20Idea)  

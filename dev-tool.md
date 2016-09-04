@@ -12,6 +12,7 @@
 ### Git Subtree
 [git subtree를 사용하여 재사용할 코드 독립 시키기](http://readme.skplanet.com/?p=8542)  
 [Git Subtree — Git Memo v1.1 documentation](http://git-memo.readthedocs.io/en/latest/subtree.html)  
+<https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt>  
 
 ```bash
 # static 디렉토리를 subtree/static 브랜치로 split

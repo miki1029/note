@@ -6,6 +6,7 @@
 [ㄴ 토비 의견](https://www.facebook.com/tobyilee/posts/10207675579542090)  
 [Java HashMap은 어떻게 동작하는가?](http://d2.naver.com/helloworld/831311)  
 [모던 자바의 역습](http://www.moreagile.net/2015/12/modernjava5.html)  
+[Top 10 Easy Performance Optimisations in Java](https://blog.jooq.org/2015/02/05/top-10-easy-performance-optimisations-in-java/)
 
 ## Effective Java
 

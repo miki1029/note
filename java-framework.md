@@ -7,3 +7,7 @@
 
 ## Hibernate
 [Hibernate Log 남기기](http://kwonnam.pe.kr/wiki/java/hibernate/log)  
+
+## Jackson
+
+[jackson-annotations](https://github.com/FasterXML/jackson-annotations)  

@@ -7,10 +7,6 @@
 [Java HashMap은 어떻게 동작하는가?](http://d2.naver.com/helloworld/831311)  
 [모던 자바의 역습](http://www.moreagile.net/2015/12/modernjava5.html)  
 
-## Jackson
-
-[jackson-annotations](https://github.com/FasterXML/jackson-annotations)  
-
 ## Effective Java
 
 ### 2장 객체의 생성과 삭제

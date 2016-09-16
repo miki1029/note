@@ -215,9 +215,9 @@ public interface IntPredicate {
 
 * New Java 8 API
   * <https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html>
-  * Comparator : comparing, reversed, thenComparing [API](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)
-  * Predicate : negate, and, or [API](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html)
-  * Function : andThen, compose [API](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html)
+  * [Comparator](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html) : comparing, reversed, thenComparing
+  * [Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html) : negate, and, or
+  * [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) : andThen, compose
 
 ```java
 // Comparator

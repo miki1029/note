@@ -108,15 +108,7 @@ File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
 
 // After - 메소드 레퍼런스
 File[] hiddenFiles = new File(".").listFiles(File::isHidden);
-
-// Comparator에 새로 추가된 comparing 메소드
-inventory.sort(comparing(Apple::getWeight));
-inventory.sort(comparing(Apple::getWeight)
-         .reversed()
-         .thenComparing(Apple::getCountry));
 ```
-
-> ```Comparator``` : <https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html>
 
 * 메소드 레퍼런스를 만드는 방법
   * 정적 메소드 레퍼런스 : ```Integer::pareseInt```
@@ -144,9 +136,7 @@ c3.apply("green", 110);
 // TriFunction<T, U, V, R>, ...
 ```
 
-#### Lambda
-
-* 예제
+* Lambda
 
 ```java
 // 메소드 명세 : Predicate 함수 인터페이스
@@ -186,7 +176,7 @@ Predicate<Apple> p = a -> "green".equals(a.getColor()); // 파라미터 1개이�
   * ```@FunctionalInterface``` : 함수형 인터페이스를 강제하는 어노테이션
   * 함수 디스크립터(function descriptor) : 함수형 인터페이스의 추상 메소드 시그너처
   * default method는 추가로 가질 수 있다.
-  * 대표적인 함수형 인터페이스 : 100p ~ 102p [Java API](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+  * 대표적인 함수형 인터페이스 : 100p ~ 102p
   * 검사형 예외를 던지는 동작을 허용하지 않는다.
 
 ```java
@@ -221,6 +211,32 @@ public interface IntPredicate {
 () -> Thread.currentThread().dumpStack() // Thread.currentThread::dumpStack
 (str, i) -> str.substring(i) // String.substring
 (String s) -> System.out.println(s) // System.out::println
+```
+
+* New Java 8 API
+  * <https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html>
+  * Comparator : comparing, reversed, thenComparing [API](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)
+  * Predicate : negate, and, or [API](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html)
+  * Function : andThen, compose [API](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html)
+
+```java
+// Comparator
+Comparator<Apple> c = Comparator.comparing(Apple::getWeight);
+inventory.sort(comparing(Apple::getWeight)
+         .reversed()
+         .thenComparing(Apple::getCountry));
+
+// Predicate
+Predicate<Apple> notRedApple = redApple.negate();
+Predicate<Apple> redAndHeavyApple = redApple.and(a -> a.getWeight() > 150);
+Predicate<Apple> redAndHeavyAppleOrGreen = redApple.and(a -> a.getWeight() > 150)
+                                                   .or(a -> "green".equals(a.getColor()));
+
+// Function
+Function<Integer, Integer> f = x -> x + 1;
+Function<Integer, Integer> g = x -> x * 2;
+Function<Integer, Integer> h = f.andThen(g); // g(f(x))
+Function<Integer, Integer> h = f.compose(g); // f(g(x))
 ```
 
 ### Interface default method

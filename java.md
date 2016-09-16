@@ -63,15 +63,17 @@
 
 ## Java 8 in Action
 
-* Stream API  
-* Method reference, Lambda  
-* Interface default method
+* Java 8 주요 특징
+  * Stream API
+  * Method reference, Lambda
+  * Interface default method
 
 ### Stream API
 
-* 스트림 : 한 번에 한 개씩 만들어지는 연속적인 데이터 항목들의 모임  
-* 질의 언어(고수준 언어)로 원하는 동작을 표현하면 최적의 저수준 실행 방법을 선택하여 동작  
-* 스레드를 사용하지 않으면서 병렬성을 얻을 수 있다.  
+* 스트림 API
+  * 스트림 : 한 번에 한 개씩 만들어지는 연속적인 데이터 항목들의 모임
+  * 질의 언어(고수준 언어)로 원하는 동작을 표현하면 최적의 저수준 실행 방법을 선택하여 동작
+  * 스레드를 사용하지 않으면서 병렬성을 얻을 수 있다.
 
 ```java
 import static java.util.stream.Collectors.toList;
@@ -91,9 +93,10 @@ List<Apple> heavyApples = inventory.parallelStream().filter((Apple a) -> a.getWe
 
 ### Method Reference
 
-* 동작 파라미터화  
-* 함수형 프로그래밍  
-* pure, side-effect-free, stateless function : shared mutable data에 접근하지 않는 함수  
+* 메소드 레퍼런스
+  * 동작 파라미터화  
+  * 함수형 프로그래밍  
+  * pure, side-effect-free, stateless function : shared mutable data에 접근하지 않는 함수  
 
 ```java
 // Before - 익명 클래스
@@ -115,19 +118,17 @@ inventory.sort(comparing(Apple::getWeight)
 
 > ```Comparator``` : <https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html>
 
-* 정적 메소드 레퍼런스 : ```Integer::pareseInt```
-* 인스턴스 메소드 레퍼런스 : ```String::length```
-* 기존 객체 인스턴스의 메소드 레퍼런스 : ```expensiveTransaction::getValue```
+* 메소드 레퍼런스를 만드는 방법
+  * 정적 메소드 레퍼런스 : ```Integer::pareseInt```
+  * 인스턴스 메소드 레퍼런스 : ```String::length```
+  * 기존 객체 인스턴스의 메소드 레퍼런스 : ```expensiveTransaction::getValue```
+  * 생성자 레퍼런스 : ```ClassName::new```
 
 ```java
 List<String> str = Arrays.asList("a", "b", "A", "B");
 str.sort((s1, s2) -> s1.compareToIgnoreCase(s2)); // Lambda
 str.sort(String::compareToIgnoreCase); // Method reference
-```
 
-* 생성자 레퍼런스 : ClassName::new
-
-```java
 Supplier<Apple> c1 = () -> new Apple();
 Supplier<Apple> c1 = Apple::new;
 c1.get();
@@ -135,7 +136,6 @@ c1.get();
 Function<Integer, Apple> c2 = weight -> new Apple(weight);
 Function<Integer, Apple> c2 = Apple::new;
 c2.apply(110);
-List<Apple> apples = map(Arrays.asList(7, 3, 4, 10), c2);
 
 BiFunction<String, Integer, Apple> c3 = (color, weight) -> new Apple(color, weight);
 BiFunction<String, Integer, Apple> c3 = Apple::new;
@@ -186,7 +186,7 @@ Predicate<Apple> p = a -> "green".equals(a.getColor()); // 파라미터 1개이�
   * ```@FunctionalInterface``` : 함수형 인터페이스를 강제하는 어노테이션
   * 함수 디스크립터(function descriptor) : 함수형 인터페이스의 추상 메소드 시그너처
   * default method는 추가로 가질 수 있다.
-  * 대표적인 함수형 인터페이스 : 100p ~ 102p
+  * 대표적인 함수형 인터페이스 : 100p ~ 102p [Java API](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
   * 검사형 예외를 던지는 동작을 허용하지 않는다.
 
 ```java

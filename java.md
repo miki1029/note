@@ -68,7 +68,9 @@
   * Method reference, Lambda
   * Interface default method
 
-### Stream API
+### 1. Stream API
+
+#### 1-1. 스트림 소개
 
 * 스트림 API
   * 스트림 : 한 번에 한 개씩 만들어지는 연속적인 데이터 항목들의 모임
@@ -107,6 +109,8 @@ s.forEach(System.out::println); // java.lang.IllegalStateException
 * 스트림과 컬렉션
   * 컬렉션 : 현재 자료구조가 포함하는 모든 값을 메모리에 저장하는 자료구조. 외부 반복
   * 스트림 : 요청할 때만 요소를 계산하는 고정된 자료구조. 내부 반복
+
+#### 1-2. 스트림 연산
 
 * 스트림 연산
   * 중간 연산(intermediate operation)
@@ -297,7 +301,38 @@ Stream.generate(Math::random)
       * bounded(상태 크기 한정, 결과를 누적) : skip, limit, reduce, sum, max, min
       * unbounded(모든 요소가 버퍼에 있어야 연산) : sorted, distinct
 
-### Method Reference
+#### 1-3. 스트림 수집
+
+* collect(Collector c)
+  * 파라미터 : ```Collector``` 인터페이스의 구현체로 스트림의 요소를 어떤 식으로 도출할 지 지정한다.
+  * 스트림의 요소에 리듀싱 연산이 수행된다.
+
+```java
+Map<Currency, List<Transaction>> transactionsByCurrencies
+    = transactions.stream().collect(groupingBy(Transaction::getCurrency));
+```
+
+* API
+  * [Collector](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collector.html) : 어떤 리듀싱 연산을 수행할지 결정
+  * [Collectors](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html) : 자주 사용하는 컬렉터들의 정적 팩토리 메소드 제공
+    * toList, toSet, groupingBy, counting, maxBy, minBy, ...
+
+* 미리 정의된 컬렉터
+  * 리듀싱과 요약
+  * 요소 그룹화
+  * 요소 분할
+
+* 리듀싱과 요약
+
+```java
+long howManyDishes = menu.stream().collect(counting());
+long howManyDishes = menu.stream().count();
+
+Optional<Dish> mostCalorieDish = menu.stream()
+                                     .collect(maxBy(comparingInt(Dish::getCalories)));
+```
+
+### 2. Method Reference
 
 * 메소드 레퍼런스
   * 동작 파라미터화  
@@ -445,7 +480,7 @@ Function<Integer, Integer> h = f.andThen(g); // g(f(x))
 Function<Integer, Integer> h = f.compose(g); // f(g(x))
 ```
 
-### Interface default method
+### 3. Interface default method
 
 ```java
 default void sort(Comparator<? super E> c) {
@@ -453,7 +488,7 @@ default void sort(Comparator<? super E> c) {
 }
 ```
 
-### Optional<T>
+### 4. Optional<T>
 
 * [Optional](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
   * isPresent() : 값을 포함하면 true

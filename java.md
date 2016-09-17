@@ -171,6 +171,36 @@ words.stream()
      .collect(toList());
 ```
 
+* 매칭
+  * allMatch, anyMatch, noneMatch
+  * 쇼트서킷 기법 적용
+
+```java
+if (menu.stream().allMatch(Dish::isVegetarian)) {
+    System.out.println("vegetarian 모두");
+}
+if (menu.stream().anyMatch(Dish::isVegetarian)) {
+    System.out.println("vegetarian 적어도 하나 존재");
+}
+if (menu.stream().noneMatch(Dish::isVegetarian)) {
+    System.out.println("vegetarian 없음");
+}
+```
+
+* 검색
+  * findFirst, findAny(병렬 실행시 이득)
+  * 쇼트서킷 기법 적용
+
+```java
+Optional<Dish> dish = menu.stream()
+                          .filter(Dish::isVegetarian)
+                          .findFirst();
+
+Optional<Dish> dish = menu.stream()
+                          .filter(Dish::isVegetarian)
+                          .findAny();
+```
+
 ### Method Reference
 
 * 메소드 레퍼런스
@@ -325,4 +355,19 @@ Function<Integer, Integer> h = f.compose(g); // f(g(x))
 default void sort(Comparator<? super E> c) {
     Collections.sort(this, c);
 }
+```
+
+### Optional<T>
+
+* [Optional](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+  * isPresent() : 값을 포함하면 true
+  * ifPresent(Consumer<T>) : 값이 있으면 블록 실행
+  * get() : 값이 존재하면 반환, 없으면 NoSuchElementException
+  * orElse(T) : 값이 있으면 반환, 없으면 기본값(인수) 반환
+
+```java
+Optional<Dish> dish = menu.stream()
+                          .filter(Dish::isVegetarian)
+                          .findAny();
+                          .ifPresent(d -> System.out.println(d.getName());
 ```

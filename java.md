@@ -123,6 +123,54 @@ s.forEach(System.out::println); // java.lang.IllegalStateException
   * 중간 연산 : filter, map, limit, sorted, distinct
   * 최종 연산 : forEach, count, collect
 
+* 필터링
+  * Predicate 필터링
+    * filter(Predicate p) : boolean을 반환하는 함수를 인자로 받아서 필터링
+  * 고유 요소 필터링
+    * dictinct() : 고유 요소는 hashCode, equals로 결정됨
+  * 스트림 축소
+    * limit(n)
+  * 요소 건너뛰기
+    * skip(n)
+
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 1, 3, 3, 2, 4, 6, 8);
+numbers.stream()
+       .filter(i -> i % 2 == 0)       // 2, 2, 4, 6, 8
+       .distinct()                    // 2, 4, 6, 8
+       .skip(1)                       // 4, 6, 8
+       .limit(2)                      // 6, 8
+       .forEach(System.out::println);
+```
+
+* 매핑
+
+```java
+List<Integer> dishNameLengths = menu.stream()
+                                    .map(Dish::getName)   // Stream<Dish> -> Stream<String>
+                                    .map(String::length)  // Stream<String> -> Stream<Integer>
+                                    .collect(toList());
+```
+
+* 배열로 스트림 만들기
+  * ```Arrays.stream(String[] strArr)```
+
+```java
+String[] arrayOfWords = {"Goodbye", "World"};
+Stream<String> streamOfWords = Arrays.stream(arrayOfWords);
+```
+
+* 스트림 평면화
+
+```java
+List<String> words = Lists.newArrayList("Hello", "World");
+words.stream()
+     .map(word -> word.split("")) // split은 String[]을 반환하므로 Stream<String[]>
+     .flatMap(Arrays::stream)     // 생성된 스트림을 하나의 스트림으로 평면화 Stream<String>
+     .distinct()
+     .collect(toList());
+```
+
 ### Method Reference
 
 * 메소드 레퍼런스

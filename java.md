@@ -117,12 +117,6 @@ s.forEach(System.out::println); // java.lang.IllegalStateException
     * 스트림을 닫는 연산
     * 스트림 이외의 결과를 반환
 
-* API
-  * [java.util.stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html)
-  * [Stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
-  * 중간 연산 : filter, map, limit, sorted, distinct
-  * 최종 연산 : forEach, count, collect
-
 * 필터링
   * Predicate 필터링
     * filter(Predicate p) : boolean을 반환하는 함수를 인자로 받아서 필터링
@@ -200,6 +194,108 @@ Optional<Dish> dish = menu.stream()
                           .filter(Dish::isVegetarian)
                           .findAny();
 ```
+
+* 리듀싱(fold)
+  * 모든 스트림 요소를 처리해서 값으로 도출하는 연산
+  * [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html) 정적 메소드 추가 : sum, max, min
+
+```java
+// reduce(T 초기값, BinaryOperator<T> 연산함수)
+int sum = numbers.stream().reduce(0, (a, b) -> a + b);
+int mul = numbers.stream().reduce(1, (a, b) -> a * b);
+int sum = numbers.stream().reduce(0, Integer::sum);
+
+// reduce(BinaryOperator<T> 연산함수) : 초기값 매개변수가 없으므로 Optional 반환함
+Optional<Integer> sum = numbers.stream().reduce((a, b) -> a + b);
+Optional<Integer> max = numbers.stream().reduce((a, b) -> (a >= b) ? a : b);
+Optional<Integer> max = numbers.stream().reduce(Integer::max);
+Optional<Integer> min = numbers.stream().reduce(Integer::min);
+
+// map-reduce pattern
+int count = menu.stream()
+                .map(d -> 1)
+                .reduce(0, Integer::sum);
+long count = menu.stream().count();
+```
+
+* 기본형 특화 스트림
+  * IntStream, DoubleStream, LongStream
+    * 매핑 : mapToInt(), mapToDouble(), mapToLong()
+    * 중간연산 : range(), rangeClosed(), ...
+    * 최종연산 : sum(), max(), min(), average(), ...
+  * boxed() : 객체 스트림으로 복원
+
+```java
+// mapToInt, sum
+int calories = menu.stream()
+                   .mapToInt(Dish::getCalories) // Stream<Integer> 가 아닌 IntStream 반환
+                   .sum();                      // IntStream 의 메소드
+
+// rangeClosed
+IntStream evenNumbers = IntStream.rangeClosed(1, 100)      // [1, 100]
+                                 .filter(n -> n % 2 == 0);
+System.out.println(evenNumbers.count());
+
+// boxed
+IntStream intStream = menu.stream().mapToInt(Dish::getCalories);
+Stream<Integer> stream = intStream.boxed();
+
+// max, OptionalInt
+OptionalInt maxCalories = menu.stream()
+                              .mapToInt(Dish::getCalories)
+                              .max();
+int max = maxCalories.orElse(1);
+```
+
+* 스트림 만들기
+
+```java
+// 빈 스트림 : Stream.empty()
+Stream<Object> stream = Stream.empty();
+
+// 임의의 인수 : Stream.of()
+Stream<String> stream = Stream.of("Java 8", "In", "Action");
+
+// 배열 : Arrays.stream()
+int[] numbers = {1, 2, 3};
+IntStream stream = Arrays.stream(numbers);
+
+// NIO API 파일 : Files.lines()
+long uniqueWords = 0;
+try (Stream<String> lines = Files.lines(Paths.get("data.txt"), Charset.defaultCharset())) {
+    uniqueWords = lines.flatMap(line -> Arrays.stream(line.split(" ")))
+                       .distinct()
+                       .count();
+}
+catch (IOException e) { /* ... */ }
+```
+
+* 무한 스트림 만들기(unbounded stream)
+
+```java
+// Stream.iterate(T 초기값, UnaryOperator<T> 반복함수)
+Stream.iterate(0, n -> n + 2)        // 0부터 시작해서 끊임없이 2가 증가되는 스트림
+      .limit(10)                     // 처음 10개로 제한
+      .forEach(System.out::println);
+
+// Stream.generate(Supplier<T> 생성함수)
+Stream.generate(Math::random)
+      .limit(5)
+      .forEach(System.out::println);
+```
+
+* API
+  * [java.util.stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html)
+  * [Stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
+  * 연산별 분류
+    * 중간 연산 : filter, map, flatMap, skip, limit, sorted, distinct
+    * 최종 연산 : anyMatch, noneMatch, allMatch, findAny, findFirst, forEach, count, collect, reduce, max, min
+  * 상태별 분류
+    * 내부 상태를 갖지 않는 연산
+      * filter, map, flatMap, anyMatch, noneMatch, allMatch, findAny, findFirst, forEach, count, collect
+    * 내부 상태를 갖는 연산
+      * bounded(상태 크기 한정, 결과를 누적) : skip, limit, reduce, sum, max, min
+      * unbounded(모든 요소가 버퍼에 있어야 연산) : sorted, distinct
 
 ### Method Reference
 
@@ -370,4 +466,14 @@ Optional<Dish> dish = menu.stream()
                           .filter(Dish::isVegetarian)
                           .findAny();
                           .ifPresent(d -> System.out.println(d.getName());
+```
+
+* 기본형 특화 Optional
+  * OptionalInt, OptionalDouble, OptionalLong
+
+```java
+OptionalInt maxCalories = menu.stream()
+                              .mapToInt(Dish::getCalories)
+                              .max();
+int max = maxCalories.orElse(1);
 ```

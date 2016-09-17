@@ -71,9 +71,13 @@
 ### Stream API
 
 * 스트림 API
+  * [java.util.stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html)
+  * [Stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
   * 스트림 : 한 번에 한 개씩 만들어지는 연속적인 데이터 항목들의 모임
   * 질의 언어(고수준 언어)로 원하는 동작을 표현하면 최적의 저수준 실행 방법을 선택하여 동작
   * 스레드를 사용하지 않으면서 병렬성을 얻을 수 있다.
+  * 특징 : 선언형, 조립, 병렬화
+  * 기타 라이브러리 : Guava, Apache Commons Collections, lambdaj
 
 ```java
 import static java.util.stream.Collectors.toList;
@@ -89,7 +93,30 @@ List<Apple> heavyApples = inventory.stream().filter((Apple a) -> a.getWeight() >
 // 병렬 처리 방식
 List<Apple> heavyApples = inventory.parallelStream().filter((Apple a) -> a.getWeight() > 150)
                                                     .collect(toList());
+
+// 스트림은 한 번만 소비할 수 있음
+List<String> title = Arrays.asList("Java8", "In", "Action");
+Stream<String> s = title.stream();
+s.forEach(System.out::println);
+s.forEach(System.out::println); // java.lang.IllegalStateException
 ```
+
+* 스트림의 정의
+  * **데이터 처리 연산**을 지원하도록 **소스**에서 추출된 **연속된 요소**
+  * 파이프라이닝 : laziness, short-circuiting
+  * 내부 반복
+
+* 스트림과 컬렉션
+  * 컬렉션 : 현재 자료구조가 포함하는 모든 값을 메모리에 저장하는 자료구조. 외부 반복
+  * 스트림 : 요청할 때만 요소를 계산하는 고정된 자료구조. 내부 반복
+
+* 스트림 연산
+  * 중간 연산(intermediate operation)
+    * 연결할 수 있는 스트림 연산
+    * lazy 연산 : 합쳐진 중간 연산을 최종 연산으로 한 번에 처리
+    * 쇼트서킷, 루프 퓨전
+  * 최종 연산(terminal operation)
+    * 스트림을 닫는 연산
 
 ### Method Reference
 

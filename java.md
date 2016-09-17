@@ -71,8 +71,6 @@
 ### Stream API
 
 * 스트림 API
-  * [java.util.stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html)
-  * [Stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
   * 스트림 : 한 번에 한 개씩 만들어지는 연속적인 데이터 항목들의 모임
   * 질의 언어(고수준 언어)로 원하는 동작을 표현하면 최적의 저수준 실행 방법을 선택하여 동작
   * 스레드를 사용하지 않으면서 병렬성을 얻을 수 있다.
@@ -112,11 +110,18 @@ s.forEach(System.out::println); // java.lang.IllegalStateException
 
 * 스트림 연산
   * 중간 연산(intermediate operation)
-    * 연결할 수 있는 스트림 연산
+    * 연결할 수 있는 스트림 연산(스트림을 반환)
     * lazy 연산 : 합쳐진 중간 연산을 최종 연산으로 한 번에 처리
     * 쇼트서킷, 루프 퓨전
   * 최종 연산(terminal operation)
     * 스트림을 닫는 연산
+    * 스트림 이외의 결과를 반환
+
+* API
+  * [java.util.stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html)
+  * [Stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
+  * 중간 연산 : filter, map, limit, sorted, distinct
+  * 최종 연산 : forEach, count, collect
 
 ### Method Reference
 

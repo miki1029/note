@@ -15,11 +15,20 @@
 <https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt>  
 
 ```bash
+# deploy/static 저장소 추가
+git remote add deploy/static [url]
+
+# deploy/static 저장소 master 브랜치를 static 디렉토리로 추가
+git subtree add --prefix=static deploy/static master
+
 # static 디렉토리를 subtree/static 브랜치로 split
 git subtree split --prefix=static -b subtree/static
 
 # static 디렉토리를 deploy/static 저장소 master 브랜치로 push
 git subtree push --prefix=static deploy/static master
+
+# deploy/static 저장소 master 브랜치를 static 디렉토리로 pull
+git subtree pull --prefix=static deploy/static master
 ```
 
 ## IDE

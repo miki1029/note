@@ -34,6 +34,7 @@ git subtree pull --prefix=static deploy/static master
 ## IDE
 [IntelliJ IDEA Tips](http://tiveloper.tistory.com/category/IDE%20%26%20Apps/IntelliJ%20Idea)  
 [IntelliJ에서 Spring Devtools와 매크로](http://sbcoba.tistory.com/36)  
+[인텔리J 활용 꿀팁 42가지 정리](http://www.popit.kr/인텔리j-활용-꿀팁-42가지-정리/)  
 
 ## Maven
 [maven-war-plugin](http://maven.apache.org/plugins/maven-war-plugin/war-mojo.html)

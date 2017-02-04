@@ -16,3 +16,8 @@
 ```bash
 mvn versions:set -DnewVersion=0.1.0-SNAPSHOT -DgenerateBackupPoms=false
 ```
+
+jgitflow
+* <https://bitbucket.org/atlassian/jgit-flow/wiki/Home>
+* <https://bitbucket.org/atlassian/jgit-flow/wiki/goals.wiki>
+* <https://gist.github.com/lemiorhan/97b4f827c08aed58a9d8>

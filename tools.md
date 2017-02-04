@@ -31,6 +31,13 @@ git subtree push --prefix=static deploy/static master
 git subtree pull --prefix=static deploy/static master
 ```
 
+### Git SourceTree Command Line Tools
+<https://jira.atlassian.com/browse/SRCTREE-3934>
+
+```bash
+cp /Applications/SourceTree.app/Contents/Resources/stree /usr/local/bin/stree
+```
+
 ## IDE
 [IntelliJ IDEA Tips](http://tiveloper.tistory.com/category/IDE%20%26%20Apps/IntelliJ%20Idea)  
 [IntelliJ에서 Spring Devtools와 매크로](http://sbcoba.tistory.com/36)  

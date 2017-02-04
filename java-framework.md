@@ -11,4 +11,8 @@
 [jackson-annotations](https://github.com/FasterXML/jackson-annotations)  
 
 ## Maven
-mvn versions:set -DnewVersion=0.1.0-SNAPSHOT -DgenerateBackupPoms=false : <http://www.mojohaus.org/versions-maven-plugin/set-mojo.html>  
+메이븐 버전 일괄 변경 : <http://www.mojohaus.org/versions-maven-plugin/set-mojo.html>
+
+```bash
+mvn versions:set -DnewVersion=0.1.0-SNAPSHOT -DgenerateBackupPoms=false
+```

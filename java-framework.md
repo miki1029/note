@@ -21,3 +21,8 @@ jgitflow
 * <https://bitbucket.org/atlassian/jgit-flow/wiki/Home>
 * <https://bitbucket.org/atlassian/jgit-flow/wiki/goals.wiki>
 * <https://gist.github.com/lemiorhan/97b4f827c08aed58a9d8>
+
+```bash
+mvn jgitflow:release-start -DdevelopmentVersion=1.4.0-SNAPSHOT -DreleaseVersion=1.3.0
+mvn jgitflow:release-finish -Darguments="-DskipTests"
+```

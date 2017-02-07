@@ -2,6 +2,9 @@
 
 [리눅스를 활용한 회사 인프라 구축의 모든 것](https://www.lesstif.com/display/1STB/Home)  
 
+## Shell Script
+* 문자열 조작: <https://wiki.kldp.org/HOWTO/html/Adv-Bash-Scr-HOWTO/string-manipulation.html>
+
 ## LVM
 
 <https://www.lesstif.com/pages/viewpage.action?pageId=20775667>

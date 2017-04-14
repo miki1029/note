@@ -29,3 +29,6 @@
   3. 물리 볼륨을 볼륨 그룹에 추가. home 은 vg_data 볼륨 그룹이므로 여기에 추가한다.
   4. home 이 사용하는 논리 볼륨인 lv_home 의 볼륨 사이즈를 증가시켜줌
 
+## 리눅스 디렉토리별 용량
+<https://slipp.net/questions/159>  
+<https://www.linux.co.kr/home/lecture/index.php?cateNo=&secNo=&theNo=&leccode=224>

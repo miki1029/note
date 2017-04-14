@@ -26,7 +26,7 @@
   * 기존 ContentNegotiatingViewResolver를 통해서만 가능했지만 스프링 MVC 컨트롤러 메소드에서도 가능하다.
 * ResponseEntityExceptionHandler 추가
   * DefaultHandlerExceptionResolver의 대안
-  * ModelAndView 대신 ResponseEntity<Object>를 리턴함
+  * ModelAndView 대신 ResponseEntity\<Object\>를 리턴함
 * RestTemplate과 @RequestBody 인자의 Generic type 지원
 * RestTemplate과 @RequestMapping 메소드의 HTTP PATCH 메소드 지원
 * 인터셉터 URL 패턴 지원

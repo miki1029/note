@@ -1,10 +1,20 @@
-## Springframework
+# Springframework
 [Spring Framework Reference Documentation](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/)  
 [ㄴRest Message Conversion](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#rest-message-conversion)  
 [Spring 4.x Web Application 살펴보기](http://www.slideshare.net/ihoneymon/spring-4x-web-application)  
 [Tomcat & Spring Bootstrapping Sequence](http://brantiffy.axisj.com/archives/232)  
 
-### 스프링 버젼별 변화
+## 스프링 예외 HTTP 상태 코드 자동 매핑
+| 스프링 예외 | HTTP 상태 코드 |
+| -------- | ------------ |
+| BindException<br>HttpMessageNotReadableException<br>MethodArgumentNotValidException<br>MissingServletRequestParameterException<br>MissingServletRequestPartException<br>TypeMismatchException | 400 - Bad Request |
+| NoSuchRequestHandlingMethodException | 404 Not Found |
+| HttpRequestMethodNotSupportedException | 405 Method Not Allowed |
+| HttpMediaTypeNotAcceptableException | 406 Not Acceptable |
+| HttpMediaTypeNotSupportedException | 415 Unsupported Media Type |
+| ConversionNotSupportedException<br>HttpMessageNotWritableException | 500 Internal Server Error |
+
+## 스프링 버젼별 변화
 스프링 3.2
 
 * 스프링 3.2에서의 가장 큰 변화는 스프링 MVC의 기능 향상이다.
@@ -42,7 +52,6 @@
 * 날짜와 시간을 파싱하고 렌더링하는 글로벌 포맷을 정의한다.
 * 통합 테스트는 WebApplicationContext를 설정하고 로드한다.
 * 통합 테스트는 요청 범위와 세션 범위의 빈에 대하여 테스트한다.
-
 
 스프링 4
 

@@ -5,6 +5,7 @@ Java Config
 ```java
 @Configuration
 @ComponentScan
+@Import(AppConfig2.class)
 public class AppConfig {}
 
 @ComponentScan
@@ -12,6 +13,11 @@ public class AppConfig {}
 @ComponentScan(basePackages="miki1029")
 @ComponentScan(basePackages={"miki1029", "mini1029"})
 @ComponentScan(basePackageClasses={MyComponent.class, PackageInfo.class})
+
+@Import(AppConfig2.class)
+@Import({AppConfig2.class, AppConfig3.class})
+@ImportResource("classpath:appConfig.xml")
+
 ```
 
 Xml Config
@@ -84,24 +90,23 @@ XML 빈 선언
 	<constructor-arg>
 		<list>
 			<value>string value1</value>
-			<value>string value2</value>
-			<value>string value3</value>
 			<ref bean="myBean"/>
 		</list>
 	</constructor-arg>
 	<constructor-arg>
-		<set>
-			<value>string value1</value>
-			<value>string value2</value>
-			<value>string value3</value>
-			<ref bean="myBean"/>
-		</set>
+		<set>...</set>
 	</constructor-arg>
+	<property name="propertyName" ref="myBean" />
+	<property name="propertyName">
+		<list>...</list>
+	</property>
 </bean>
 
 <!--paramName : 생성자 파라미터명-->
 <bean id="myBean2" class="miki1029.MyBean2" c:paramName-ref="myBean" />
 <bean id="myBean2" class="miki1029.MyBean2" c:paramName="literal value" />
+<bean id="myBean2" class="miki1029.MyBean2" p:propertyName-ref="myBean" />
+<bean id="myBean2" class="miki1029.MyBean2" p:propertyName="literal value" />
 
 <!--_0 : 첫 번째 파라미터-->
 <bean id="myBean2" class="miki1029.MyBean2" c:_0-ref="myBean" />
@@ -110,4 +115,21 @@ XML 빈 선언
 <!--파라미터 하나일 때-->
 <bean id="myBean2" class="miki1029.MyBean2" c:_-ref="myBean" />
 <bean id="myBean2" class="miki1029.MyBean2" c:_-="literal value" />
+
+<!--util-namespace : list bean-->
+<util:list id="myList">
+	<value>value1</value>
+</util:list>
 ```
+
+**util-namespace**
+
+빈으로 만들거나 노출시킴
+
+* list : java.util.List
+* set : java.util.Set
+* map : java.util.Map
+* properties : java.util.Properties
+* property-path : 빈 프로퍼티 참조
+* constant : public static 필드 참조
+

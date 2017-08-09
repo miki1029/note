@@ -1,3 +1,5 @@
+StandardOutputStreamLog : <http://stefanbirkner.github.io/system-rules/index.html>
+
 ```java
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes=AppConfig.class)

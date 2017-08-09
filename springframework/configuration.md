@@ -29,6 +29,8 @@ Test Java Config
 
 ## Bean
 
+자동 스프링 설정
+
 ```java
 @ComponentScan
 @ComponentScan("beanName")
@@ -37,4 +39,75 @@ Test Java Config
 @Autowired
 @Autowired(required=false)
 @Inject
+```
+
+Java 빈 선언
+
+```java
+@Configuration
+public class AppConfig {
+	@Bean
+	public MyBean myBean() {
+		return new MyBean();
+	}
+	
+	@Bean
+	public MyBean2 myBean2() {
+		// myBean() 에서 실제 메소드를 호출하지 않고 이미 만들어진 빈을 리턴해 준다.
+		return new MyBean2(myBean());
+	}
+	
+	@Bean
+	// myBean 빈을 주입해 준다.
+	public MyBean2 myBean2(MyBean myBean) {
+		return new MyBean2(myBean);
+	}
+}
+
+@Bean
+@Bean(name="beanName")
+```
+
+XML 빈 선언
+
+```xml
+<bean class="miki1029.MyBean" /> <!-- beanName : miki1029.MyBean#0 -->
+<bean id="myBean" class="miki1029.MyBean" />
+
+<!--생성자 주입-->
+<bean id="myBean2" class="miki1029.MyBean2">
+	<constructor-arg ref="myBean">
+</bean>
+<bean id="myBean2" class="miki1029.MyBean2">
+	<constructor-arg value="literal value">
+	<constructor-arg><null/></constructor-arg>
+	<constructor-arg>
+		<list>
+			<value>string value1</value>
+			<value>string value2</value>
+			<value>string value3</value>
+			<ref bean="myBean"/>
+		</list>
+	</constructor-arg>
+	<constructor-arg>
+		<set>
+			<value>string value1</value>
+			<value>string value2</value>
+			<value>string value3</value>
+			<ref bean="myBean"/>
+		</set>
+	</constructor-arg>
+</bean>
+
+<!--paramName : 생성자 파라미터명-->
+<bean id="myBean2" class="miki1029.MyBean2" c:paramName-ref="myBean" />
+<bean id="myBean2" class="miki1029.MyBean2" c:paramName="literal value" />
+
+<!--_0 : 첫 번째 파라미터-->
+<bean id="myBean2" class="miki1029.MyBean2" c:_0-ref="myBean" />
+<bean id="myBean2" class="miki1029.MyBean2" c:_0="literal value" />
+
+<!--파라미터 하나일 때-->
+<bean id="myBean2" class="miki1029.MyBean2" c:_-ref="myBean" />
+<bean id="myBean2" class="miki1029.MyBean2" c:_-="literal value" />
 ```

@@ -24,6 +24,8 @@ Xml Config
 
 ```xml
 <context:component-scan base-package="miki1029" />
+<import resource="config.xml" />
+<bean class="miki1029.AppConfig" />
 ```
 
 Test Java Config
@@ -132,4 +134,3 @@ XML 빈 선언
 * properties : java.util.Properties
 * property-path : 빈 프로퍼티 참조
 * constant : public static 필드 참조
-

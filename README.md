@@ -4,6 +4,7 @@
 <https://trello.com/b/DlJ9r6tg/dev-ref>  
 <https://okdevtv.com/md/list.html>  
 <http://bit.ly/devbook>  
+<http://j.mp/okdevtv-java>  
 
 # 마크다운 작성 규칙
 

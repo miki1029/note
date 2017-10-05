@@ -1,7 +1,7 @@
 # 메모리 버퍼
 
-<img src="https://github.com/miki1029/note/raw/master/sql/img/data_cache_log_buffer.jpg" width="500px"/>
-<img src="https://github.com/miki1029/note/raw/master/sql/img/working_memory.jpg" width="500px"/>
+<img src="https://github.com/miki1029/note/raw/master/sql/img/data_cache_log_buffer.jpg" width="700px"/>
+<img src="https://github.com/miki1029/note/raw/master/sql/img/working_memory.jpg" width="700px"/>
 
 * 데이터 캐시
 	* 디스크에 있는 데이터의 일부를 메모리에 유지

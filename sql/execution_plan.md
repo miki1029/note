@@ -23,7 +23,7 @@
 * 인덱스 스캔 (id 조회)
 	* Rows : 1
 	* Operation | Name
-		* TABLE ACCESS BY INDEX ROWID | 테이블명
+		* TABLE ACCESS BY INDEX ROWID | 테이블명
 		* INDEX UNIQUE SCAN | 인덱스명
 
 <img src="https://github.com/miki1029/note/raw/master/sql/img/scan_time.jpg" width="500px"/>

@@ -1,6 +1,6 @@
 # DBMS Architecture
 
-<img src="https://github.com/miki1029/note/raw/master/sql/dbms_architecture.png" width="500px"/>
+<img src="https://github.com/miki1029/note/raw/master/sql/img/dbms_architecture.png" width="500px"/>
 
 1. 쿼리 평가 엔진
 1. 버퍼 매니저

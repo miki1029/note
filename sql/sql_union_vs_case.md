@@ -167,7 +167,7 @@ SELECT key, name, date_1, flg_1, date_2, flg_2, date_3, flg_3
 FROM ThreeElements
 WHERE ('2013-11-01', 'T') IN ((date_1, flg_1), (date_2, flg_2), (date_3, flg_3));
 
--- CASE
+-- CASE (단, pair 외 값들이 NULL일 때)
 -- 실행 계획은 OR의 경우와 동일
 SELECT key, name, date_1, flg_1, date_2, flg_2, date_3, flg_3
 FROM ThreeElements

@@ -120,3 +120,59 @@ SELECT emp_name,
 FROM Employees
 GROUP BY emp_name;	
 ```
+
+# UNION이 필요한 경우
+
+## UNION을 사용할 수밖에 없는 경우
+
+* 테이블이 다른 경우 (CASE 식도 사용 가능하나 필요 없는 결합이 발생해서 성능적으로 어떤 것이 더 좋은지 확인이 필요하다.)
+
+## UNION이 성능적으로 더 좋은 경우
+
+* 인덱스와 관련된 경우
+	* UNION을 사용했을 때 좋은 인덱스를 사용하지만, 이외의 경우 테이블 풀 스캔이 발생하는 경우
+	* WHERE 구문에서 OR을 사용하면 해당 필드에 부여된 인덱스를 사용할 수 없다.
+
+```sql
+-- UNION
+-- 3번의 인덱스 스캔 (데이터 수가 적으면 풀스캔이 일어날 가능성도 있긴 함)
+-- 데이터 수가 많아질 수록 아래 3개보다 유리하다.
+SELECT key, name, date_1, flg_1, date_2, flg_2, date_3, flg_3
+FROM ThreeElements
+WHERE date_1 = '2013-11-01'
+AND flg_1 = 'T'
+UNION
+SELECT key, name, date_1, flg_1, date_2, flg_2, date_3, flg_3
+FROM ThreeElements
+WHERE date_2 = '2013-11-01'
+AND flg_2 = 'T'
+UNION
+SELECT key, name, date_1, flg_1, date_2, flg_2, date_3, flg_3
+FROM ThreeElements
+WHERE date_3 = '2013-11-01'
+AND flg_3 = 'T';
+
+-- OR
+-- 한 번의 풀스캔 (인덱스 사용 불가)
+-- DBMS에 따라서 UNION을 사용할 때와 같은 실행 계획을 만들기도 한다.
+SELECT key, name, date_1, flg_1, date_2, flg_2, date_3, flg_3
+FROM ThreeElements
+WHERE (date_1 = '2013-11-01' AND flg_1 = 'T')
+	OR (date_2 = '2013-11-01' AND flg_2 = 'T')
+	OR (date_3 = '2013-11-01' AND flg_3 = 'T')
+
+-- IN
+-- 실행 계획은 OR의 경우와 동일
+SELECT key, name, date_1, flg_1, date_2, flg_2, date_3, flg_3
+FROM ThreeElements
+WHERE ('2013-11-01', 'T') IN ((date_1, flg_1), (date_2, flg_2), (date_3, flg_3));
+
+-- CASE
+-- 실행 계획은 OR의 경우와 동일
+SELECT key, name, date_1, flg_1, date_2, flg_2, date_3, flg_3
+FROM ThreeElements
+WHERE CASE WHEN date_1 = '2013-11-01' THEN flg_1
+		   WHEN date_2 = '2013-11-01' THEN flg_2
+		   WHEN date_3 = '2013-11-01' THEN flg_3
+		   ELSE NULL END = 'T';
+```

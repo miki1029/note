@@ -87,3 +87,33 @@ FROM Address;
 -- 성별 별로 나이 순위(건너뛰기 있게)를 매기는 구문
 SELECT name, sex, age, RANK() OVER(PARTITION BY sex ORDER BY age DESC) AS rnk
 ```
+
+## UNION을 사용한 조건 분기
+
+* 내부적으로 여러 개의 SELECT 구문으로 실행하는 실행 계획으로 해석되기 때문에 I/O 비용이 크게 늘어난다.
+
+```sql
+-- 2001년까지는 세금이 포함되지 않은 가격
+-- 2002년부터는 세금이 포함된 가격
+SELECT item_name, year, price_tax_ex AS price
+FROM Items
+WHERE year <= 2001
+UNION ALL
+SELECT item_name, year, price_tax_in AS price
+FROM Items
+WHERE year >= 2002;
+```
+
+* UNION ALL : 조건이 배타적이므로 중복된 레코드가 발생하지 않음
+* 성능 문제점 발생 : 테이블 풀 스캔이 두 번 일어난다.(인덱스 스캔이 일어나는 상황이라면 얘기가 달라질 수도 있음)
+
+### WHERE 구에서 조건 분기를 하는 사람은 초보자
+
+```sql
+SELECT item_name, year,
+	CASE WHEN year <= 2001 THEN price_tax_ex
+		 WHEN year >= 2002 THEN price_tax_in END AS price
+FROM Items;
+```
+
+* 테이블 풀 스캔이 한 번 일어남으로써 UNION보다 성능이 좋아진다.

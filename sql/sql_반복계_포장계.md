@@ -8,7 +8,7 @@
 
 <img src="https://github.com/miki1029/note/raw/master/sql/img/process_time.jpg" width="500px"/>
 
-* SQL 실행의 오버 헤드
+* SQL 실행의 오버 헤드
 	* 전처리
 		* SQL 구문을 네트워크로 전송 : 같은 데이터센터라면 오버헤드가 거의 없음
 		* 데이터베이스 연결 : 커넥션 풀 이용하면 빠름

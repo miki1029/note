@@ -19,6 +19,8 @@ Resources
   * API docs : https://turi.com/products/create/docs/
 * Numpy
   * Getting started guide : https://docs.scipy.org/doc/numpy-dev/user/quickstart.html
+* Starter code
+  * https://github.com/learnml/machine-learning-specialization
 
 Install
 

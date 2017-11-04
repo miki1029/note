@@ -3,7 +3,7 @@
 ## IDENTITY 전략
 
 * MySQL, PostgreSQL, SQL Server, DB2
-* 기본 키를 insert 해야 알 수 있기 때문에 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)`persist() 호출시 곧바로 insert`가 일어난다.
+* 기본 키를 insert 해야 알 수 있기 때문에 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) **`persist() 호출시 곧바로 insert`**가 일어난다.
 
 ```java
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@
   
 ### hibernate.id.new\_generator\_mappings = false
 
-* hibernate 5 버전에서 디폴트 설정 값은 true이지만 <span style="color:red">**spring-boot-autoconfigure를 사용하면 디폴트 값이 false**</span>이다.
+* hibernate 5 버전에서 디폴트 설정 값은 true이지만 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) **`spring-boot-autoconfigure를 사용하면 디폴트 값이 false`**</span>이다.
 * 구 버전 하이버네이트가 동작했던 방식이다.
 	* 새로운 프로젝트라면 이 값을 false로 사용할 이유가 없다. 반드시 true로 설정하자.
 * 시퀀스는 항상 increment by 1로 사용
@@ -50,7 +50,7 @@
 
 * 데이터베이스 시퀀스를 흉내내는 전략이므로 모든 DB에서 사용 가능
 * 기본적으로 SEQUENCE와 동일하다고 보면 된다.
-* 단, 시퀀스는 조회하면서 값이 증가하지만 <span style="color:red">**테이블 전략은 select, update 두 번의 쿼리**</span>가 발생한다.
+* 단, 시퀀스는 조회하면서 값이 증가하지만 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)**`테이블 전략은 select, update 두 번의 쿼리`**가 발생한다.
 	* 그렇다 하더라도 시퀀스와 마찬가지로 allocationSize를 통해 최적화할 수 있다.
 	* select for update를 통해 락을 잡는다. : <http://www.dator.co.kr/hotshin/textyle/236147>
 

@@ -50,7 +50,7 @@
 
 * 데이터베이스 시퀀스를 흉내내는 전략이므로 모든 DB에서 사용 가능
 * 기본적으로 SEQUENCE와 동일하다고 보면 된다.
-* 단, 시퀀스는 조회하면서 값이 증가하지만 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)**` 테이블 전략은 select, update 두 번의 쿼리`**가 발생한다.
+* 단, 시퀀스는 조회하면서 값이 증가하지만 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) **`테이블 전략은 select, update 두 번의 쿼리`** 가 발생한다.
 	* 그렇다 하더라도 시퀀스와 마찬가지로 allocationSize를 통해 최적화할 수 있다.
 	* select for update를 통해 락을 잡는다. : <http://www.dator.co.kr/hotshin/textyle/236147>
 

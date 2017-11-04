@@ -24,6 +24,7 @@
 ### hibernate.id.new\_generator\_mappings = true
 
 * **hibernate 5 버전에서 디폴트 설정 값**이다.
+* SequenceStyleGenerator를 사용한다.
 * 하이버네이트의 새로운 시퀀스 할당 전략이다.
 	* 하위버전 호환이 되지 않을 수 있으므로 주의
 * allocationSize 만큼 시퀀스 값을 한 번에 증가시키고 메모리에서 시퀀스를 할당하는 개념
@@ -32,6 +33,7 @@
 ### hibernate.id.new\_generator\_mappings = false
 
 * hibernate 5 버전에서 디폴트 설정 값은 true이지만 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) **`spring-boot-autoconfigure를 사용하면 디폴트 값이 false`** 이다.
+* SequenceHiLoGenerator를 사용한다.
 * 구 버전 하이버네이트가 동작했던 방식이다.
 	* 새로운 프로젝트라면 이 값을 false로 사용할 이유가 없다. 반드시 true로 설정하자.
 * 시퀀스는 항상 increment by 1로 사용

@@ -3,7 +3,7 @@
 ## IDENTITY 전략
 
 * MySQL, PostgreSQL, SQL Server, DB2
-* 기본 키를 insert 해야 알 수 있기 때문에 <span style="color:red">**persist() 호출시 곧바로 insert**</span>가 일어난다.
+* 기본 키를 insert 해야 알 수 있기 때문에 <b style="color:red">persist() 호출시 곧바로 insert</b>가 일어난다.
 
 ```java
 @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -37,7 +37,7 @@
 * 구 버전 하이버네이트가 동작했던 방식이다.
 	* 새로운 프로젝트라면 이 값을 false로 사용할 이유가 없다. 반드시 true로 설정하자.
 * 시퀀스는 항상 increment by 1로 사용
-	* allocationSize = 50 일때, 시퀀스가 1이면 1~50, 2이면 51~100을 할당
+	* allocationSize = 50 일때, 시퀀스가 1이면 1\~50, 2이면 51\~100을 할당
 
 ```java
 // @SequenceGenerator는 class, @Id 필드 아무대나 붙여도 되고 @GeneratedValue는 @Id 필드에 붙이면 된다.

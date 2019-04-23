@@ -32,3 +32,7 @@
 ## 리눅스 디렉토리별 용량
 <https://slipp.net/questions/159>  
 <https://www.linux.co.kr/home/lecture/index.php?cateNo=&secNo=&theNo=&leccode=224>
+
+## 포트 프로세스 확인
+mac : https://new93helloworld.tistory.com/138
+linux : 

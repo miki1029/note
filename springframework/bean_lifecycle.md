@@ -1,3 +1,5 @@
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F22107F505693B43E29E7AD)
+
 빈 사용 준비
 
 1. 인스턴스화

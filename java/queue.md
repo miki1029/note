@@ -48,22 +48,17 @@
   * DelayQueue : heap
     * time-based scheduling queue
   * SynchronousQueue
-    * [rendezvous](https://en.wikipedia.org/wiki/Rendezvous_(Plan_9)) mechanism
-  * LinkedTrasferQueue : node
+    * [rendezvous](https://en.wikipedia.org/wiki/Rendezvous_(Plan_9) mechanism
+  * LinkedTransferQueue : node
     * `LinkedTrasferQueue` implements `TrasferQueue` extends `BlockingQueue`
     * unbounded
     * 값을 추출할 때 wait 할지 여부를 직접 결정할 수 있음
 
 # Reference
 
-https://docs.oracle.com/javase/tutorial/collections/implementations/queue.html
-
-https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html
-
-https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html
-
-https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TransferQueue.html
-
-<http://oniondev.egloos.com/558949>
-
-https://202psj.tistory.com/990
+* https://docs.oracle.com/javase/tutorial/collections/implementations/queue.html
+* https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html
+* https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html
+* https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TransferQueue.html
+* http://oniondev.egloos.com/558949
+* https://202psj.tistory.com/990

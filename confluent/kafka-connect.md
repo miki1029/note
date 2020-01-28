@@ -43,8 +43,7 @@ helm upgrade -f values.yaml my-confluent .
 
 # Create connector
 
-<https://docs.confluent.io/current/connect/references/restapi.html#post--connectors>
-
+* common : <https://docs.confluent.io/current/connect/managing/configuring.html>
 * mongo : <https://docs.mongodb.com/kafka-connector/current/kafka-source/#source-connector-configuration-properties>
 
 

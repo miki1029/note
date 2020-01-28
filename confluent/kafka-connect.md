@@ -45,7 +45,7 @@ helm upgrade -f values.yaml my-confluent .
 
 * common : <https://docs.confluent.io/current/connect/managing/configuring.html>
 * mongo : <https://docs.mongodb.com/kafka-connector/current/kafka-source/#source-connector-configuration-properties>
-
+* mongo-debezium : <https://debezium.io/documentation/reference/1.1/connectors/mongodb.html>
 
 # Reference
 * <https://docs.confluent.io/current/connect/managing/extending.html>

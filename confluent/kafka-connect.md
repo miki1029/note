@@ -1,4 +1,6 @@
-* Dockerfile
+# Install Connector
+
+## Dockerfile
 
 ```dockerfile
 FROM confluentinc/cp-kafka-connect:5.3.1
@@ -9,7 +11,7 @@ RUN   confluent-hub install --no-prompt debezium/debezium-connector-mongodb:0.10
    && confluent-hub install --no-prompt mongodb/kafka-connect-mongodb:1.0.0
 ```
 
-* Create image
+## Create image
 
 ```cmd
 docker login example.com
@@ -17,13 +19,13 @@ docker build -t example.com/project/cp-kafka-connect:0.0.1 .
 docker push example.com/project/cp-kafka-connect:0.0.1
 ```
 
-* Create kube secret (run only once)
+## Create kube secret (for private. run only once)
 
 ```cmd
 kubectl create secret docker-registry example.com --docker-server=example.com --docker-username=user --docker-password=pw
 ```
 
-* Modify values
+## Modify values
 
 ```yaml
 cp-kafka-connect:
@@ -32,15 +34,22 @@ cp-kafka-connect:
   imageTag: 0.0.1
 ```
 
-* Upgrade helm charts
+## Upgrade helm charts
 
 ```
 helm status my-confluent
 helm upgrade -f values.yaml my-confluent .
 ```
 
-* Reference
-  * <https://docs.confluent.io/current/connect/managing/extending.html>
-  * <https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/>
-  * <https://kubernetes.io/ko/docs/concepts/containers/images/>
-  * API : https://docs.confluent.io/current/connect/references/restapi.html
+# Create connector
+
+<https://docs.confluent.io/current/connect/references/restapi.html#post--connectors>
+
+* mongo : <https://docs.mongodb.com/kafka-connector/current/kafka-source/#source-connector-configuration-properties>
+
+
+# Reference
+* <https://docs.confluent.io/current/connect/managing/extending.html>
+* <https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/>
+* <https://kubernetes.io/ko/docs/concepts/containers/images/>
+* API : https://docs.confluent.io/current/connect/references/restapi.html

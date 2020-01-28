@@ -1,6 +1,6 @@
 # Install Connector
 
-## Dockerfile
+### Dockerfile
 
 ```dockerfile
 FROM confluentinc/cp-kafka-connect:5.3.1
@@ -11,7 +11,7 @@ RUN   confluent-hub install --no-prompt debezium/debezium-connector-mongodb:0.10
    && confluent-hub install --no-prompt mongodb/kafka-connect-mongodb:1.0.0
 ```
 
-## Create image
+### Create image
 
 ```cmd
 docker login example.com
@@ -19,13 +19,13 @@ docker build -t example.com/project/cp-kafka-connect:0.0.1 .
 docker push example.com/project/cp-kafka-connect:0.0.1
 ```
 
-## Create kube secret (for private. run only once)
+### Create kube secret (for private. run only once)
 
 ```cmd
 kubectl create secret docker-registry example.com --docker-server=example.com --docker-username=user --docker-password=pw
 ```
 
-## Modify values
+### Modify values
 
 ```yaml
 cp-kafka-connect:
@@ -34,7 +34,7 @@ cp-kafka-connect:
   imageTag: 0.0.1
 ```
 
-## Upgrade helm charts
+### Upgrade helm charts
 
 ```
 helm status my-confluent

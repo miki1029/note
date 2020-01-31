@@ -7,6 +7,7 @@ k kubectl
 rc replicationcontroller
 po pods
 svc services
+pvc persistentvolumeclaims
 ```
 
 ## 명령어
@@ -28,16 +29,22 @@ k config set-context --current --namespace=default
 k config set-context minikube --namespace=default
 ```
 
+```
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=jenkins" -o jsonpath="{.items[0].metadata.name}")
+kubectl --namespace default port-forward $POD_NAME 8080:8080
+```
+
 ### get
 
 ```
 k get all
-k get pods
-k get pods -n default
-k get services
+k get ns
+k get deployments
+k get svc
+k get po
+k get pvc
 
 # 기본 출력을 위한 Get 커맨드
-k get services                          # 네임스페이스 내 모든 서비스의 목록 조회
 k get pods --all-namespaces             # 모든 네임스페이스 내 모든 파드의 목록 조회
 k get pods -o wide                      # 네임스페이스 내 모든 파드의 상세 목록 조회
 k get deployment my-dep                 # 특정 디플로이먼트의 목록 조회

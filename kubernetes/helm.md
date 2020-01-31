@@ -35,8 +35,8 @@ helm repo update
 ## 패키지 관리
 
 ```
-helm install <my-package-name> <repo-name>/<package-name>
-helm uninstall
+helm install <my-package-name> <repo-name>/<package-name> [-n=<namespace-name>]
+helm uninstall <my-package-name> [-n=<namespace-name>]
 ```
 
 ```

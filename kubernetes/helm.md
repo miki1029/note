@@ -47,3 +47,4 @@ helm upgrade -f <file.yaml> <name> .
 
 * <https://helm.sh/docs/intro/quickstart/>
 * <https://hub.helm.sh/>
+* <https://github.com/RehanSaeed/Helm-Cheat-Sheet>

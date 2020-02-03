@@ -57,10 +57,15 @@ k get pod my-pod -o yaml                # 파드의 YAML 조회
 k get pod my-pod -o yaml --export       # 클러스터 명세 없이 파드의 YAML 조회
 ```
 
+### create
+```
+k create namespace <namespace>
+```
+
 ### delete
 
 ```
-kubectl delete namespaces <namespace>
+k delete namespaces <namespace>
 ```
 
 ### logs

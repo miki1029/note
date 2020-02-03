@@ -1,5 +1,9 @@
 # Kubectl
 
+## Reference
+
+* <https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/>
+
 ## 약어
 
 ```
@@ -51,6 +55,12 @@ k get deployment my-dep                 # 특정 디플로이먼트의 목록 �
 k get pods                              # 네임스페이스 내 모든 파드의 목록 조회
 k get pod my-pod -o yaml                # 파드의 YAML 조회
 k get pod my-pod -o yaml --export       # 클러스터 명세 없이 파드의 YAML 조회
+```
+
+### delete
+
+```
+kubectl delete namespaces <namespace>
 ```
 
 ### logs

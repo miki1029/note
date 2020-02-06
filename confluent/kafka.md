@@ -10,11 +10,8 @@ $ kafka-consumer-groups --bootstrap-server <broker1,broker2> --topic <topicName>
 
 ## Kafka Configurations
 
-producer  
-https://kafka.apache.org/documentation/#producerconfigs
-
-consumer  
-https://kafka.apache.org/documentation/#consumerconfigs
+* producer : <https://kafka.apache.org/documentation/#producerconfigs>
+* consumer : <https://kafka.apache.org/documentation/#consumerconfigs>
 
 ### Reference
 
@@ -24,27 +21,49 @@ https://kafka.apache.org/documentation/#consumerconfigs
 
 ### Spring Cloud Stream
 
-spring.cloud.stream.default  
-spring.cloud.stream.bindings.<bindingName>  
-https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/3.0.1.RELEASE/reference/html/spring-cloud-stream.html#_common_binding_properties
+#### spring.cloud.stream.bindings.\<bindingName\>
 
-spring.cloud.stream.default.consumer  
-spring.cloud.stream.bindings.<bindingName>.consumer  
-https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/3.0.1.RELEASE/reference/html/spring-cloud-stream.html#_consumer_properties
+* spring.cloud.stream.default
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/3.0.1.RELEASE/reference/html/spring-cloud-stream.html#_common_binding_properties>
 
-spring.cloud.stream.default.producer  
-spring.cloud.stream.bindings.<bindingName>.producer  
-https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/3.0.1.RELEASE/reference/html/spring-cloud-stream.html#_producer_properties
+#### spring.cloud.stream.bindings.\<bindingName\>.producer
+
+* spring.cloud.stream.default.producer
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/3.0.1.RELEASE/reference/html/spring-cloud-stream.html#_producer_properties>
+
+#### spring.cloud.stream.bindings.\<bindingName\>.consumer
+
+* spring.cloud.stream.default.consumer
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/3.0.1.RELEASE/reference/html/spring-cloud-stream.html#_consumer_properties>
 
 ### Spring Cloud Stream Kafka
 
-spring.cloud.stream.kafka.binder  
-https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_kafka_binder_properties
+#### spring.cloud.stream.kafka.binder
 
-spring.cloud.stream.kafka.default.consumer  
-spring.cloud.stream.kafka.bindings.<channelName>.consumer  
-https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#kafka-consumer-properties
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_kafka_binder_properties>
 
-spring.cloud.stream.kafka.default.producer  
-spring.cloud.stream.kafka.bindings.<channelName>.producer  
-https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#kafka-producer-properties
+#### spring.cloud.stream.kafka.bindings.\<channelName\>.producer
+
+* spring.cloud.stream.kafka.default.producer
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#kafka-producer-properties>
+
+#### spring.cloud.stream.kafka.bindings.\<channelName\>.consumer
+
+* spring.cloud.stream.kafka.default.consumer
+* https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#kafka-consumer-properties
+
+### Spring Cloud Stream Kafka Streams
+
+#### spring.cloud.stream.kafka.streams.binder
+
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_kafka_streams_binder_properties>
+
+#### spring.cloud.stream.kafka.streams.bindings.\<bindingName\>.producer
+
+* spring.cloud.stream.kafka.streams.default.producer
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_kafka_streams_producer_properties>
+
+#### spring.cloud.stream.kafka.streams.bindings.\<bindingName\>.consumer
+
+* spring.cloud.stream.kafka.streams.default.consumer
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_kafka_streams_consumer_properties>

@@ -71,14 +71,60 @@ The push refers to repository [docker.io/miki1029/cheers2019]
 latest: digest: sha256:7c91396470ab03d8a2b0de4a83656b58da02aee215fb7a0c0117ac7902dfeb56 size: 528
 ```
 
-### run
+### Commands
+
+<https://docs.docker.com/engine/reference/commandline/cli/>
 
 ```bash
+# 정보 출력
+docker images
+docker ps
+docker ps -a # 중지된 컨테이너까지 모두 출력
+docker inspect <container-name>
+
+# build
+docker build -t <image>[:<tag:latest>] .
+docker build -t kubia:1.0 .
+
+# run
 docker run <image>[:<tag>] [<command>]
 docker run busybox echo "hello world"
+
+docker run --name <conainer-name> -p <local-port>:<container-port> -d <image>
+
+# exec
+docker exec -it <container-name> bash
+
+# stop
+docker stop <container-name>
+
+# rm
+docker rm <container-name>
+
+# tag
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+# push
+docker push [OPTIONS] NAME[:TAG]
 ```
 
 * 이미지가 로컬에 없으면 도커 허브에서 최신 이미지를 다운 받는다.
 * 컨테이너를 생성한다.
 * 명령어를 실행한다.
 * 컨테이너가 중지된다.
+
+### Dockerfile
+
+<https://docs.docker.com/engine/reference/builder/>
+
+```Dockerfile
+FROM <image>:<tag>
+ADD <local-file> <container-file>
+ENTRYPOINT [<command>, <arg1>, <arg2>, ...]
+```
+
+```Dockerfile
+FROM node:7
+ADD app.js /app.js
+ENTRYPOINT ["node", "app.js"]
+```

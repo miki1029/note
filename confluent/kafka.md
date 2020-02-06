@@ -42,12 +42,12 @@ $ kafka-consumer-groups --bootstrap-server <broker1,broker2> --topic <topicName>
 
 * <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_kafka_binder_properties>
 
-#### spring.cloud.stream.kafka.bindings.\<channelName\>.producer
+#### spring.cloud.stream.kafka.bindings.\<bindingName\>.producer
 
 * spring.cloud.stream.kafka.default.producer
 * <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#kafka-producer-properties>
 
-#### spring.cloud.stream.kafka.bindings.\<channelName\>.consumer
+#### spring.cloud.stream.kafka.bindings.\<bindingName\>.consumer
 
 * spring.cloud.stream.kafka.default.consumer
 * https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#kafka-consumer-properties

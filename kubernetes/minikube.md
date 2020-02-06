@@ -69,4 +69,5 @@ $ brew cask install virtualbox
 ```
 $ brew cask install virtualbox
 $ minikube start
+$ minikube status
 ```

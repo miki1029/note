@@ -23,6 +23,7 @@ pvc persistentvolumeclaims
 k config current-context
 k config get-contexts
 k cluster-info
+k describe nodes [<context-name>]
 
 # 현재 상태 변경
 k config use-context <context-name>

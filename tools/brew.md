@@ -8,10 +8,16 @@ brew help
 # 정보 출력
 ## 설치된 패키지
 brew list
+brew cask list
 
 # 설치 및 제거
 brew install <package>
 brew uninstall <package>
+
+# 버전 관리
+brew update
+brew upgrade
+brew cask upgrade
 
 # brew link 버전 변경
 brew unlink <old-package>

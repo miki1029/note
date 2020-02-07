@@ -67,7 +67,19 @@ $ brew cask install virtualbox
 * 완료되면 minikube를 다시 시작
 
 ```
-$ brew cask install virtualbox
-$ minikube start
-$ minikube status
+brew cask install virtualbox
+minikube start
+minikube stop
+```
+
+# Commands
+
+```
+# 정보 출력
+minikube status
+minikube service list
+
+# 서비스 연결
+# minkube는 로드 밸런서 서비스를 지원하지 않으므로 아래 명령어를 통해서 kube 서비스에 연결이 가능하다.
+minikube service {service-name}
 ```

@@ -23,6 +23,7 @@ pvc persistentvolumeclaims
 k config current-context
 k config get-contexts
 k cluster-info
+k describe po [<pod-name>]
 k describe nodes [<context-name>]
 
 # 현재 상태 변경
@@ -49,9 +50,10 @@ k get svc
 k get po
 k get pvc
 
+k get po -o wide
+
 # 기본 출력을 위한 Get 커맨드
 k get pods --all-namespaces             # 모든 네임스페이스 내 모든 파드의 목록 조회
-k get pods -o wide                      # 네임스페이스 내 모든 파드의 상세 목록 조회
 k get deployment my-dep                 # 특정 디플로이먼트의 목록 조회
 k get pods                              # 네임스페이스 내 모든 파드의 목록 조회
 k get pod my-pod -o yaml                # 파드의 YAML 조회
@@ -69,7 +71,40 @@ k create namespace <namespace>
 k delete namespaces <namespace>
 ```
 
-### logs
+
+### 배포 관리
+
+#### replicationcontroller
+
+```
+# generator=run/v1 deprecated
+k run kubia --image=luksa/kubia --port=8080 --generator=run/v1
+
+# 레플리케이션 컨트롤러를 서비스로 노출하고 EXTERNAL-IP를 받아옴
+# minikube는 kubectl 로드 밸런서 서비스를 지원하지 않는데 minikube 명령어를 사용하면 서비스에 접근할 수 있는 IP를 제공한다.
+k expose rc kubia --type=LoadBalancer --name kubia-http
+minikube service kubia-http
+
+k scale rc kubia --replicas=3
+```
+
+#### deployment
+
+```
+k rollout restart deployment/<name>
+```
+
+### Pod, Container 관리
+
+* Pod 이름을 호스트 이름으로 사용
+
+#### exec
+
+```
+k exec pod/<pod-name> -c <container-name> -it -- /bin/bash
+```
+
+#### logs
 
 ```
 k logs (pod)
@@ -81,29 +116,6 @@ k logs (pod) -c (container)
 ```
 k port-forward (pod) (local port):(pod port)
 ```
-
-### deployment
-
-```
-k rollout restart deployment/<name>
-k get pods
-
-k exec pod/<pod-name> -c <container-name> -it -- /bin/bash
-```
-
-## minikube
-
-```
-minikube start
-```
-
-# 레플리케이션 컨트롤러
-k run kubia --image=luksa/kubia --port=8080 --generator=run/v1
-
-# 레플리케이션 컨트롤러를 서비스로 노출하고 EXTERNAL-IP를 받아옴
-k expose rc kubia --type=LoadBalancer --name kubia-http
-
-디플로이먼트
 
 ## 자동 완성
 

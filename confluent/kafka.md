@@ -6,16 +6,23 @@
 $ kafka-consumer-groups --bootstrap-server <broker1,broker2> --topic <topicName> --group <groupName> --reset-offsets --to-earliest --execute
 ```
 
+# Concepts
+
+* Streams Concepts : <https://docs.confluent.io/current/streams/concepts.html>
+* Streams Architecture : <https://docs.confluent.io/current/streams/architecture.html>
+* Streams Developer Guide
+  * <https://docs.confluent.io/current/streams/developer-guide/index.html>
+  * <https://kafka.apache.org/24/documentation/streams/developer-guide/>
+* Log Compaction : <https://kafka.apache.org/documentation.html#compaction>
+  * Hence log compaction is perfectly safe for a KTable (changelog stream) but it is a mistake for a KStream (record stream).
+
 # Configurations
 
 ## Kafka Configurations
 
 * producer : <https://kafka.apache.org/documentation/#producerconfigs>
 * consumer : <https://kafka.apache.org/documentation/#consumerconfigs>
-
-### Reference
-
-* <https://ujfish-tools.tistory.com/entry/kafka-centos-%ED%99%95%EC%9D%B8%EC%82%AC%ED%95%AD>
+* kr blog : <https://ujfish-tools.tistory.com/entry/kafka-centos-%ED%99%95%EC%9D%B8%EC%82%AC%ED%95%AD>
 
 ## Spring Configurations
 

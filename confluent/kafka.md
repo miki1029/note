@@ -24,6 +24,11 @@ $ kafka-consumer-groups --bootstrap-server <broker1,broker2> --topic <topicName>
 * consumer : <https://kafka.apache.org/documentation/#consumerconfigs>
 * kr blog : <https://ujfish-tools.tistory.com/entry/kafka-centos-%ED%99%95%EC%9D%B8%EC%82%AC%ED%95%AD>
 
+## Kafka Streams Configurations
+
+* streams : <https://kafka.apache.org/24/documentation/streams/developer-guide/config-streams.html>
+* serde : <https://docs.confluent.io/current/streams/developer-guide/datatypes.html>
+
 ## Spring Configurations
 
 ### Spring Cloud Stream

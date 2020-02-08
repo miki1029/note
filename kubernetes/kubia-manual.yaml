@@ -6,6 +6,10 @@ metadata:
   labels:
     creation_method: manual
     env: prod
+  # 주석 추가
+  annotations:
+    my-key: |
+      {"test":"최대 256KB"}
 spec:
   # node label 지정
   nodeSelector:

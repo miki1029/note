@@ -2,6 +2,7 @@
 
 ## Reference
 
+* <https://kubernetes.io/ko/docs/reference/>
 * <https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/>
 
 ## 약어

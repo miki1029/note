@@ -80,21 +80,20 @@ k get po -l <key>!=<value>
 k get po -l '!<key>'
 k get po -l '<key> in (<value1>[, <value2>, ...])
 k get po -l '<key> notin (<value1>[, <value2>, ...])
-k get no -l <key>=<value>
 
 # 라벨로 조회시 ,를 이용해 and 조건 구성 가능
 k get po -l <key1>,<key2>
+
+# get pod 이외의 예시
+k get no -l <key>=<value>
+k delete po -l <key>=<value>
 ```
 
-### create
-```
-k create namespace <namespace>
-```
-
-### delete
+### namespace
 
 ```
-k delete namespaces <namespace>
+k create ns <namespace>
+k delete ns <namespace>
 ```
 
 ### label
@@ -118,6 +117,13 @@ k annotate pod <pod> <key>="<value with whitespace>"
 
 ### 배포 관리
 
+#### 삭제
+
+```
+k delete po --all
+k delete all --all # 시크릿 등 특정 리소스는 지우지 않음
+```
+
 #### replicationcontroller
 
 ```
@@ -125,6 +131,8 @@ k annotate pod <pod> <key>="<value with whitespace>"
 k run kubia --image=luksa/kubia --port=8080 --generator=run/v1
 
 k scale rc kubia --replicas=3
+
+k delete rc kubia
 ```
 
 #### deployment

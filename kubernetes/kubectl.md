@@ -20,6 +20,9 @@ deploy deployments
 replicasets rs
 statefulesets sts
 ingresses ing
+nodes no
+
+--namespace -n
 ```
 
 ## 명령어
@@ -65,7 +68,22 @@ k get po --all-namespaces
 k get po my-pod -o yaml
 k get po my-pod -o yaml --export
 k get po --show-labels
+
+# 라벨과 함께 조회
 k get po -L <label1>[,<label2>,...]
+k get no -L kubernetes.io/hostname
+
+# 라벨로 조회
+k get po -l <key>
+k get po -l <key>=<value>
+k get po -l <key>!=<value>
+k get po -l '!<key>'
+k get po -l '<key> in (<value1>[, <value2>, ...])
+k get po -l '<key> notin (<value1>[, <value2>, ...])
+k get no -l <key>=<value>
+
+# 라벨로 조회시 ,를 이용해 and 조건 구성 가능
+k get po -l <key1>,<key2>
 ```
 
 ### create
@@ -81,22 +99,22 @@ k delete namespaces <namespace>
 
 ### label
 
-#### 라벨 생성
-
 ```
 # 라벨 생성
+k label <object> <pod> <key>=<value>
 k label po <pod> <key>=<value>
+k label no <node> <key>=<value>
 
-# 라벨 변경
-k label po <pod> <key>=<value> --overwrite
+# 라벨 변경시 --overwrite 옵션 추가
+k label <object> <pod> <key>=<value> --overwrite
 ```
 
-#### 라벨로 조회
+### 주석 (annotate)
 
-* 특정 키가 있는 라벨 포함 or 미포함
-* 특정 키와 값이 있는 라벨을 포함
-* 특정 키가 있지만 지정한 값과 다른 값이 있는 라벨을 포함
-
+```
+k annotate <object> <pod> <key>=<value>
+k annotate pod <pod> <key>="<value with whitespace>"
+```
 
 ### 배포 관리
 
@@ -141,12 +159,6 @@ k exec pod/<pod-name> -c <container-name> -it -- /bin/bash
 ```
 k logs (pod)
 k logs (pod) -c (container)
-```
-
-### etc
-
-```
-
 ```
 
 ## 자동 완성

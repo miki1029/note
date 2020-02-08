@@ -8,11 +8,18 @@
 ## 약어
 
 ```
+k api-resources
+
 k kubectl
 rc replicationcontroller
 po pods
 svc services
 pvc persistentvolumeclaims
+pv persistentvolumes
+deploy deployments
+replicasets rs
+statefulesets sts
+ingresses ing
 ```
 
 ## 명령어
@@ -53,12 +60,12 @@ k get pvc
 
 k get po -o wide
 
-# 기본 출력을 위한 Get 커맨드
-k get pods --all-namespaces             # 모든 네임스페이스 내 모든 파드의 목록 조회
-k get deployment my-dep                 # 특정 디플로이먼트의 목록 조회
-k get pods                              # 네임스페이스 내 모든 파드의 목록 조회
-k get pod my-pod -o yaml                # 파드의 YAML 조회
-k get pod my-pod -o yaml --export       # 클러스터 명세 없이 파드의 YAML 조회
+# get pods options
+k get po --all-namespaces
+k get po my-pod -o yaml
+k get po my-pod -o yaml --export
+k get po --show-labels
+k get po -L <label1>[,<label2>,...]
 ```
 
 ### create
@@ -72,6 +79,24 @@ k create namespace <namespace>
 k delete namespaces <namespace>
 ```
 
+### label
+
+#### 라벨 생성
+
+```
+# 라벨 생성
+k label po <pod> <key>=<value>
+
+# 라벨 변경
+k label po <pod> <key>=<value> --overwrite
+```
+
+#### 라벨로 조회
+
+* 특정 키가 있는 라벨 포함 or 미포함
+* 특정 키와 값이 있는 라벨을 포함
+* 특정 키가 있지만 지정한 값과 다른 값이 있는 라벨을 포함
+
 
 ### 배포 관리
 
@@ -81,11 +106,6 @@ k delete namespaces <namespace>
 # generator=run/v1 deprecated
 k run kubia --image=luksa/kubia --port=8080 --generator=run/v1
 
-# 레플리케이션 컨트롤러를 서비스로 노출하고 EXTERNAL-IP를 받아옴
-# minikube는 kubectl 로드 밸런서 서비스를 지원하지 않는데 minikube 명령어를 사용하면 서비스에 접근할 수 있는 IP를 제공한다.
-k expose rc kubia --type=LoadBalancer --name kubia-http
-minikube service kubia-http
-
 k scale rc kubia --replicas=3
 ```
 
@@ -93,6 +113,17 @@ k scale rc kubia --replicas=3
 
 ```
 k rollout restart deployment/<name>
+```
+
+#### 외부 노출
+
+```
+# 레플리케이션 컨트롤러를 서비스로 노출하고 EXTERNAL-IP를 받아옴
+# minikube는 kubectl 로드 밸런서 서비스를 지원하지 않는데 minikube 명령어를 사용하면 서비스에 접근할 수 있는 IP를 제공한다.
+k expose rc kubia --type=LoadBalancer --name kubia-http
+minikube service kubia-http
+
+k port-forward (pod) (local port):(pod port)
 ```
 
 ### Pod, Container 관리
@@ -115,7 +146,7 @@ k logs (pod) -c (container)
 ### etc
 
 ```
-k port-forward (pod) (local port):(pod port)
+
 ```
 
 ## 자동 완성

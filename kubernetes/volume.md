@@ -106,6 +106,21 @@ spec:
 
 ### PersistentVolume, PersistentVolumeClaim
 
+* persistentVolumeClaim : 사전 또는 동적으로 프로비저닝된 영구 스토리지
+* accessModes
+  * ReadWriteOnce (RWO) : 단일 노드만 읽기/쓰기
+  * ReadOnlyMany (ROX) : 여러 노드가 읽기
+  * ReadWriteMany (RWX) : 여러 노드가 읽기/쓰기
+* persistentVolumeReclaimPolicy
+  * Retain : 수동 / 다시 사용하려면 PV 리소스를 삭제하고 다시 작성해야 함
+  * Recycle ; 자동 / 볼륨의 내용을 삭제하고 볼륨을 다시 할당할 수 있게 함
+  * Delete : 자동 / 기본 스토리지를 삭제
+* PV는 클러스터 범위이므로 특정 네임스페이스에서 생성 불가
+* PVC는 특정 네임스페이스에서 생성 가능
+
+
+#### 수동 프로비저닝
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -117,10 +132,100 @@ spec:
   accessModes:
   - ReadWriteOnece
   - ReadOnlyMany
-  persistentVolumeReclaimPolicy: Retain
+  persistentVolumeReclaimPolicy: Retain # 중간에 변경 가능
   gcePersistentDisk:
     pdName: mongodb
     fsType: ext4
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: "" # 사전 배포된 PV를 사용하려면 명시적으로 "" 설정
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongodb
+spec:
+  containers:
+  - image: mongo
+    name: mongodb
+    volumeMounts:
+    - name: mongodb-data
+      mountPath: /data/db
+    ports:
+    - containerPort: 27017
+      protocol: TCP
+  volumes:
+  - name: mongodb-data
+    persistentVolumeClaim:
+      claimName: mongodb-pvc
 ```
 
-* persistentVolumeClaim : 사전 또는 동적으로 프로비저닝된 영구 스토리지
+#### 자동 프로비저닝 (StorageClass)
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fast
+provisioner: kubernetes.io/gce-pd # PV 프로비저닝에 사용할 볼륨 플러그인
+parameters: # 플러그인 매개변수
+  type: pd-ssd
+  zone: europe-west1-b
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+spec:
+  storageClassName: fast
+  resources:
+    requests:
+      storage: 100Mi
+  accessModes:
+  - ReadWriteOnce
+```
+
+* 자동으로 PV가 생성된다.
+  * 클레임 정책은 Delete
+
+##### 기본 스토리지 클래스
+
+```yaml
+$ k get sc standard -o yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true" # sc 기본값 설정
+  creationTimestamp: "2019-12-17T13:27:59Z"
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+  name: standard
+  resourceVersion: "403"
+  selfLink: /apis/storage.k8s.io/v1/storageclasses/standard
+  uid: a51fc6e6-5918-49ef-98df-47444068bf37
+provisioner: k8s.io/minikube-hostpath # PV 프로비저닝에 사용할 볼륨 플러그인
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+
+# 스토리지 클래스를 지정하지 않고 PVC 생성
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc2
+spec:
+  resources:
+    requests:
+      storage: 100Mi
+  accessModes:
+  - ReadWriteOnce
+```

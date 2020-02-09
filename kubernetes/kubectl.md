@@ -160,6 +160,7 @@ k port-forward (pod) (local port):(pod port)
 
 ```
 k exec pod/<pod-name> -c <container-name> -it -- /bin/bash
+k exec -it <pod-name> <command>
 ```
 
 #### logs

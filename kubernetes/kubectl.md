@@ -61,6 +61,8 @@ k get deployments
 k get svc
 k get po
 k get pvc
+k get pv
+k get sc
 
 k get po -o wide
 

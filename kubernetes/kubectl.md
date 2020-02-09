@@ -16,6 +16,7 @@ po pods
 svc services
 pvc persistentvolumeclaims
 pv persistentvolumes
+sc storageclasses
 deploy deployments
 replicasets rs
 statefulesets sts

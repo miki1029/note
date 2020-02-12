@@ -10,6 +10,10 @@
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-configuration-metadata.html>
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-auto-configuration-classes.html>
 
+## DB
+
+* <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources>
+
 # Test
 
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-testing>

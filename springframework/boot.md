@@ -4,6 +4,9 @@
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/>
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features>
 
+# Starter
+* <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter>
+
 # Configuration
 
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html>

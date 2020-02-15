@@ -32,6 +32,10 @@ $ kafka-consumer-groups --bootstrap-server <broker1,broker2> --topic <topicName>
 
 ## Spring Configurations
 
+### Spring Kafka
+
+* <https://docs.spring.io/spring-kafka/reference/html/>
+
 ### Spring Cloud Stream
 
 #### spring.cloud.stream.bindings.\<bindingName\>

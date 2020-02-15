@@ -23,6 +23,7 @@ $ kafka-consumer-groups --bootstrap-server <broker1,broker2> --topic <topicName>
 * producer : <https://kafka.apache.org/documentation/#producerconfigs>
 * consumer : <https://kafka.apache.org/documentation/#consumerconfigs>
 * kr blog : <https://ujfish-tools.tistory.com/entry/kafka-centos-%ED%99%95%EC%9D%B8%EC%82%AC%ED%95%AD>
+* <https://team-platform.tistory.com/32>
 
 ## Kafka Streams Configurations
 

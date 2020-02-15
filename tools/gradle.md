@@ -4,8 +4,7 @@
 
 * <https://projectlombok.org/setup/gradle>
 * <https://plugins.gradle.org/plugin/io.freefair.lombok>
-* <https://docs.freefair.io/gradle-plugins/5.0.0-rc2/reference/#_lombok>
-* <https://docs.freefair.io/gradle-plugins/4.1.6/reference/#_lombok>
+* <https://docs.freefair.io/gradle-plugins/current/reference/#_lombok>
 
 ```
 ./gradlew build --refresh-dependencies -x test

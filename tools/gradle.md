@@ -3,7 +3,7 @@
 # plugin
 
 * <https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_tasks>
-* <https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins.html#build-tool-plugins-gradle-plugin>
+* <https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/gradle-plugin/reference/html/>
 
 # dependency
 

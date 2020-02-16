@@ -1,5 +1,14 @@
 * <https://docs.gradle.org/current/userguide/groovy_build_script_primer.html>
 
+# task
+
+* <https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_tasks>
+
+# dependency
+
+* <https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management>
+* <https://developer.android.com/studio/build/dependencies?hl=ko>
+
 # publish
 
 * <https://docs.gradle.org/current/userguide/publishing_maven.html>

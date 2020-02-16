@@ -14,6 +14,7 @@
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html>
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-configuration-metadata.html>
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-auto-configuration-classes.html>
+* @ConditionalOnClass, @ConditionalOnBean : <https://kingbbode.tistory.com/40>
 
 ## DB
 

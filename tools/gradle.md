@@ -1,8 +1,9 @@
 * <https://docs.gradle.org/current/userguide/groovy_build_script_primer.html>
 
-# task
+# plugin
 
 * <https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_tasks>
+* <https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins.html#build-tool-plugins-gradle-plugin>
 
 # dependency
 

@@ -8,6 +8,7 @@
 # dependency
 
 * <https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management>
+* <https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_configurations_graph>
 * <https://developer.android.com/studio/build/dependencies?hl=ko>
 
 # publish

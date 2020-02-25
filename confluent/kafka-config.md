@@ -41,26 +41,56 @@
       * compact : 동일한 키가 있을 때 이전 레코드들을 삭제한다.
       * delete : (default) 일정 시간 경과 후 레코드들을 삭제한다.
 
+### timestamp 설정
+
+* log.message.timestamp.type
+  * CreateTime : (default) 이벤트 시간 / producer가 보낸 timestamp를 사용
+  * LogAppendTime : 처리 시간 / broker 기준
+
 ## Topic Configurations
 
 * <https://docs.confluent.io/current/installation/configuration/topic-configs.html>
 * <https://kafka.apache.org/documentation/#topicconfigs>
-
-### 로그 설정
-
-* Broker Configurations 로그 설정의 키에서 `log` prefix를 제거하면 거의 대부분 동일하다.
+* Broker Configurations 설정의 키에서 `log` prefix를 제거하면 거의 대부분 동일하다.
 
 
 ## Kafka Configurations
 
-* producer
-  * <https://docs.confluent.io/current/installation/configuration/producer-configs.html>
-  * <https://kafka.apache.org/documentation/#producerconfigs>
-* consumer
-  * <https://docs.confluent.io/current/installation/configuration/consumer-configs.html>
-  * <https://kafka.apache.org/documentation/#consumerconfigs>
-* kr blog : <https://ujfish-tools.tistory.com/entry/kafka-centos-%ED%99%95%EC%9D%B8%EC%82%AC%ED%95%AD>
+* <https://ujfish-tools.tistory.com/entry/kafka-centos-%ED%99%95%EC%9D%B8%EC%82%AC%ED%95%AD>
 * <https://team-platform.tistory.com/32>
+
+### producer
+
+* <https://docs.confluent.io/current/installation/configuration/producer-configs.html>
+* <https://kafka.apache.org/documentation/#producerconfigs>
+* bootstrap.servers
+* key.serializer
+* value.serializer
+* acks
+  * all : 모든 팔로워가 커밋할 때까지 대기
+  * 1 : 리더의 커밋만 대기
+  * 0 : 커밋을 기다리지 않음
+* retries : 재시도 횟수
+  * 레코드 순서가 중요한 경우 `max.in.flight.requests.per.connection`을 1로 설정
+* compression.type
+  * none, gzip, snappy, lz4, zstd
+* partitioner.class
+  * Partitioner 인터페이스를 구현하는 클래스의 이름
+* batch.size
+* linger.ms
+
+### consumer
+
+* <https://docs.confluent.io/current/installation/configuration/consumer-configs.html>
+* <https://kafka.apache.org/documentation/#consumerconfigs>
+* 컨슈머 인스턴스들의 총 스레드 수는 파티션 수를 넘지 않아야 한다. (유휴 상태가 됨)
+* auto.offset.reset : 오프셋이 없을 때 초기화 전략
+  * earliest
+  * latest : (default)
+  * none : 오프셋이 없으면 브로커가 컨슈머에게 예외를 발생시킨다.
+* enable.auto.commit : (default true)
+* auto.commit.interval.ms : (default 5000)
+* group.id
 
 ## Kafka Streams Configurations
 

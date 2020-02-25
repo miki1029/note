@@ -1,11 +1,3 @@
-# Consumer Groups
-
-* 컨슈머 그룹 reset offset
-
-```
-$ kafka-consumer-groups --bootstrap-server <broker1,broker2> --topic <topicName> --group <groupName> --reset-offsets --to-earliest --execute
-```
-
 # Concepts
 
 * Streams Concepts : <https://docs.confluent.io/current/streams/concepts.html>
@@ -18,10 +10,48 @@ $ kafka-consumer-groups --bootstrap-server <broker1,broker2> --topic <topicName>
 
 # Configurations
 
+* <https://docs.confluent.io/current/installation/configuration/index.html>
+* <https://kafka.apache.org/documentation/>
+
+## Broker Configurations
+
+* <https://docs.confluent.io/current/installation/configuration/broker-configs.html>
+
+### 로그 설정
+
+* <https://bigdatalab.tistory.com/10>
+* log.dir : 카프카 로그 디렉토리
+* 로그 롤링 (세그먼트)
+ * 첫 번째 메시지의 타임스탬프가 기준
+ * 단위가 작은 설정이 우선순위가 높다.
+ * log.roll.ms
+ * log.roll.hours : default 168
+* 로그 세그먼트 삭제
+ * 시간 단위 관리
+  * 세그먼트에서 가장 큰 타임스탬프가 기준
+  * 단위가 작은 설정이 우선순위가 높다.
+  * log.retention.ms
+  * log.retention.minutes
+  * log.retention.hours : default 168
+ * 용량 단위 관리
+  * log.retention.bytes : 파티션 로그 최대 크기
+  * log.segment.bytes : 세그먼트 로그 최대 크기 default 1GB (1073741824)
+
+## Topic Configurations
+
+* <https://docs.confluent.io/current/installation/configuration/topic-configs.html>
+* <https://kafka.apache.org/documentation/#topicconfigs>
+
+
+
 ## Kafka Configurations
 
-* producer : <https://kafka.apache.org/documentation/#producerconfigs>
-* consumer : <https://kafka.apache.org/documentation/#consumerconfigs>
+* producer
+ * <https://docs.confluent.io/current/installation/configuration/producer-configs.html>
+ * <https://kafka.apache.org/documentation/#producerconfigs>
+* consumer
+ * <https://docs.confluent.io/current/installation/configuration/consumer-configs.html>
+ * <https://kafka.apache.org/documentation/#consumerconfigs>
 * kr blog : <https://ujfish-tools.tistory.com/entry/kafka-centos-%ED%99%95%EC%9D%B8%EC%82%AC%ED%95%AD>
 * <https://team-platform.tistory.com/32>
 

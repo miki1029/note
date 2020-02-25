@@ -47,11 +47,11 @@
 ## Kafka Configurations
 
 * producer
- * <https://docs.confluent.io/current/installation/configuration/producer-configs.html>
- * <https://kafka.apache.org/documentation/#producerconfigs>
+  * <https://docs.confluent.io/current/installation/configuration/producer-configs.html>
+  * <https://kafka.apache.org/documentation/#producerconfigs>
 * consumer
- * <https://docs.confluent.io/current/installation/configuration/consumer-configs.html>
- * <https://kafka.apache.org/documentation/#consumerconfigs>
+  * <https://docs.confluent.io/current/installation/configuration/consumer-configs.html>
+  * <https://kafka.apache.org/documentation/#consumerconfigs>
 * kr blog : <https://ujfish-tools.tistory.com/entry/kafka-centos-%ED%99%95%EC%9D%B8%EC%82%AC%ED%95%AD>
 * <https://team-platform.tistory.com/32>
 

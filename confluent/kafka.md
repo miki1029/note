@@ -22,20 +22,20 @@
 * <https://bigdatalab.tistory.com/10>
 * log.dir : 카프카 로그 디렉토리
 * 로그 롤링 (세그먼트)
- * 첫 번째 메시지의 타임스탬프가 기준
- * 단위가 작은 설정이 우선순위가 높다.
- * log.roll.ms
- * log.roll.hours : default 168
-* 로그 세그먼트 삭제
- * 시간 단위 관리
-  * 세그먼트에서 가장 큰 타임스탬프가 기준
+  * 첫 번째 메시지의 타임스탬프가 기준
   * 단위가 작은 설정이 우선순위가 높다.
-  * log.retention.ms
-  * log.retention.minutes
-  * log.retention.hours : default 168
- * 용량 단위 관리
-  * log.retention.bytes : 파티션 로그 최대 크기
-  * log.segment.bytes : 세그먼트 로그 최대 크기 default 1GB (1073741824)
+  * log.roll.ms
+  * log.roll.hours : default 168
+* 로그 세그먼트 삭제
+  * 시간 단위 관리
+    * 세그먼트에서 가장 큰 타임스탬프가 기준
+    * 단위가 작은 설정이 우선순위가 높다.
+    * log.retention.ms
+    * log.retention.minutes
+    * log.retention.hours : default 168
+  * 용량 단위 관리
+    * log.retention.bytes : 파티션 로그 최대 크기
+    * log.segment.bytes : 세그먼트 로그 최대 크기 default 1GB (1073741824)
 
 ## Topic Configurations
 

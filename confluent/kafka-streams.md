@@ -16,7 +16,15 @@
 
 ## Store
 
+* <https://docs.confluent.io/current/streams/architecture.html#state>
+* <https://docs.confluent.io/current/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-transformations-stateful>
+* <https://docs.confluent.io/current/streams/architecture.html#fault-tolerance>
+* <https://docs.confluent.io/current/streams/developer-guide/config-streams.html#num-standby-replicas>
 * <https://bistros.tistory.com/entry/StreamsBuilder%EC%9D%98-table-%EB%A9%94%EC%86%8C%EB%93%9C%EB%8A%94-%ED%95%AD%EC%83%81-statestore%EC%99%80-changelog-%ED%86%A0%ED%94%BD%EC%9D%84-%EB%A7%8C%EB%93%A0%EB%8B%A4>
+
+### Spring Cloud Stream
+
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_state_store>
 
 ## Etc
 

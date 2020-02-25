@@ -36,6 +36,10 @@
   * 용량 단위 관리
     * log.retention.bytes : 파티션 로그 최대 크기
     * log.segment.bytes : 세그먼트 로그 최대 크기 default 1GB (1073741824)
+  * 정책 관리
+    * log.cleanup.policy
+      * compact : 동일한 키가 있을 때 이전 레코드들을 삭제한다.
+      * delete : (default) 일정 시간 경과 후 레코드들을 삭제한다.
 
 ## Topic Configurations
 

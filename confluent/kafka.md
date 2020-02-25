@@ -42,6 +42,9 @@
 * <https://docs.confluent.io/current/installation/configuration/topic-configs.html>
 * <https://kafka.apache.org/documentation/#topicconfigs>
 
+### 로그 설정
+
+* Broker Configurations 로그 설정의 키에서 `log` prefix를 제거하면 거의 대부분 동일하다.
 
 
 ## Kafka Configurations

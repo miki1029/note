@@ -39,6 +39,12 @@
 * StreamPartitioner
 * KStream.through
 
+## Join
+
+* ValueJoiner
+* JoinWindows
+* 조인하는 토픽은 서로 파티션 수가 같아야 한다.
+
 ### Spring Cloud Stream
 
 * <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_state_store>

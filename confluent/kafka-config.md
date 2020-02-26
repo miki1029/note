@@ -40,6 +40,7 @@
     * log.cleanup.policy
       * compact : 동일한 키가 있을 때 이전 레코드들을 삭제한다.
       * delete : (default) 일정 시간 경과 후 레코드들을 삭제한다.
+      * compact,delete
 
 ### timestamp 설정
 

@@ -45,6 +45,29 @@
 * JoinWindows
 * 조인하는 토픽은 서로 파티션 수가 같아야 한다.
 
+## timestamp
+
+* <https://github.com/miki1029/note/blob/master/confluent/kafka-config.md#timestamp-%EC%84%A4%EC%A0%95>
+* 타임스탬프 처리 시맨틱
+  * 이벤트 시간(CreateTime) : producer에서 보낸 시간
+  * 인제스트 시간(LogAppendTime) : broker에서 설정한 시간
+  * 처리 시간 : streams에서 소비한 시간(wall-clock time)
+* ConsumerRecord의 메타데이터에는 topic 설정에 따라 이벤트 시간 또는 인제스트 시간이 포함된다.
+* 레코드 value에 내장된 타임스탬프로 작업을 해야 하는 경우 사용자 정의 TimestampExtractor를 구현해야 한다.
+* 인터페이스, 추상 클래스
+  * TimestampExtractor : 최상위 인터페이스
+  * ExtractRecordMetadataTimestamp : ConsumerRecord에서 타임스탬프를 추출하는 핵심 기능 추상 클래스
+    * 보통 onInvalidTimestamp의 구현에 따라 구현 클래스가 달라짐
+* 구현 클래스
+  * ExtractRecordMetadataTimestamp
+    * FailOnInvalidTimestamp
+    * LogAndSinkOnInvalidTimestamp
+    * UsePreviousTimeOnInvalidTimestamp
+  * WallclockTimestampExtractor : System.currentTimeMillis()로 처리 시간 시맨틱을 제공하며 ConsumerRecord에서 타임 스탬프를 추출하지 않는다.
+* config
+  * default.timestamp.extractor : (default) FailOnInvalidTimestamp.class
+  * Consumed.with(...).withTimestampExtractor(...)
+
 ### Spring Cloud Stream
 
 * <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_state_store>

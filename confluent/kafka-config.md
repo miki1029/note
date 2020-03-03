@@ -84,6 +84,7 @@
 
 * <https://docs.confluent.io/current/installation/configuration/consumer-configs.html>
 * <https://kafka.apache.org/documentation/#consumerconfigs>
+* <https://medium.com/11st-pe-techblog/%EC%B9%B4%ED%94%84%EC%B9%B4-%EC%BB%A8%EC%8A%88%EB%A8%B8-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%B0%B0%ED%8F%AC-%EC%A0%84%EB%9E%B5-4cb2c7550a72>
 * 컨슈머 인스턴스들의 총 스레드 수는 파티션 수를 넘지 않아야 한다. (유휴 상태가 됨)
 * auto.offset.reset : 오프셋이 없을 때 초기화 전략
   * earliest
@@ -92,6 +93,10 @@
 * enable.auto.commit : (default true)
 * auto.commit.interval.ms : (default 5000)
 * group.id
+* fetch 관련
+  * fetch.max.bytes : (default 52428800 50MiB)
+  * max.partition.fetch.bytes : (default 1048576 1MiB)
+  * max.poll.records : (default 500)
 
 ## Kafka Streams Configurations
 

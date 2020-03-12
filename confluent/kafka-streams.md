@@ -1,26 +1,19 @@
-## Configurations
+## Concepts
 
-* StreamsConfig
-* <https://docs.confluent.io/current/streams/developer-guide/config-streams.html>
-
-### 필수 설정
-
-* application.id : 전체 클러스터에서 고유한 값
-  * default로 `클라이언트 ID 접두사`로 사용됨 : 카프카에 연결하는 클라이언트를 고유하게 식별하는 사용자 정의 값
-  * default로 `그룹 ID`로 사용됨 : 동일한 토픽을 읽는 컨슈머 그룹의 구성원을 관리
-* bootstrap.servers
-
-## Serde
-
-* Serdes
-
-## Store
+### State
 
 * <https://docs.confluent.io/current/streams/architecture.html#state>
 * <https://docs.confluent.io/current/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-transformations-stateful>
 * <https://docs.confluent.io/current/streams/architecture.html#fault-tolerance>
 * <https://docs.confluent.io/current/streams/developer-guide/config-streams.html#num-standby-replicas>
 * <https://bistros.tistory.com/entry/StreamsBuilder%EC%9D%98-table-%EB%A9%94%EC%86%8C%EB%93%9C%EB%8A%94-%ED%95%AD%EC%83%81-statestore%EC%99%80-changelog-%ED%86%A0%ED%94%BD%EC%9D%84-%EB%A7%8C%EB%93%A0%EB%8B%A4>
+* `KStream.transformValues()`
+  * 의미상으로 `KStream.mapValues()`와 동일하지만
+  * StateStore 인스턴스에 접근해서 작업을 완료한다.
+  * `punctuate()` 메소드를 통해 정기적인 간격으로 작업이 수행되도록 예약이 가능하다.
+  * 오프셋 커밋은 언제 이루어질까??
+  * `ValueTransformer` 구현시 init에서 stateStore를 가져오고 transform에서 store를 이용해 누적 데이터 등으로 변환하면 된다.
+* State에 쓰기 전에 변경로그 토픽에 먼저 반영 후 기록하기 때문에 failover가 가능하다.
 * 주요 클래스
   * Stores -> StoreSupplier : store의 유형 정적 팩토리 메소드
   * Materialized : 고수준 DSL을 사용하는 경우 주로 사용
@@ -34,18 +27,18 @@
   * 카프카 스트림즈가 자동으로 생성함
   * compacted topic
 
-## Partition
+### Repartition
 
-* StreamPartitioner
-* KStream.through
+* `KStream.through("토픽명", Produeced.with(keySerde, valueSerde, streamPartitioner))` : 새로운 중간 토픽을 만들어 데이터를 리파티셔닝한다.
+  * `StreamPartitioner` : 기존의 카프카 키를 통해서 파티셔닝을 하는 것이 아닌 임의의 파티셔닝 키를 사용하고자 할 때
 
-## Join
+### Join
 
 * ValueJoiner
 * JoinWindows
 * 조인하는 토픽은 서로 파티션 수가 같아야 한다.
 
-## timestamp
+### timestamp
 
 * <https://github.com/miki1029/note/blob/master/confluent/kafka-config.md#timestamp-%EC%84%A4%EC%A0%95>
 * 타임스탬프 처리 시맨틱
@@ -67,6 +60,18 @@
 * config
   * default.timestamp.extractor : (default) FailOnInvalidTimestamp.class
   * Consumed.with(...).withTimestampExtractor(...)
+
+## Configurations
+
+* StreamsConfig
+* <https://docs.confluent.io/current/streams/developer-guide/config-streams.html>
+
+### 필수 설정
+
+* application.id : 전체 클러스터에서 고유한 값
+  * default로 `클라이언트 ID 접두사`로 사용됨 : 카프카에 연결하는 클라이언트를 고유하게 식별하는 사용자 정의 값
+  * default로 `그룹 ID`로 사용됨 : 동일한 토픽을 읽는 컨슈머 그룹의 구성원을 관리
+* bootstrap.servers
 
 ### Spring Cloud Stream
 

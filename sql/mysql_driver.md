@@ -1,4 +1,4 @@
-# mysql의 serverTimezone의 역할
+# mysql driver의 serverTimezone의 역할
 
 jpa에서 OffsetDateTime을 사용하면 이는 mysql driver 단에서 java.sql.Timestamp로 변환되어 사용됩니다.
 즉, 현재 serverTimezone에 따라서 다르게 저장되는 부분은 jpa와 관계가 없으며 java.sql.Timestamp를 파라미터로 사용하는 PreparedStatement를 사용시 영향이 있습니다.

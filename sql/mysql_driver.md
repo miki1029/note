@@ -17,7 +17,7 @@ public void setTimestamp(int parameterIndex, Timestamp x, Calendar targetCalenda
 	                    targetCalendar != null ? null : this.session.getServerSession().getDefaultTimeZone());
 
 	StringBuffer buf = new StringBuffer();
-    buf.append(this.tsdf.format(x));
+	buf.append(this.tsdf.format(x));
 
 	// ...
 }

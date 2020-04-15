@@ -50,6 +50,24 @@ public void postConstruct() {
 }
 ```
 
+#### Support retry
+
+* spring cloud stream의 batch 모드에서는 기본적으로 retry를 지원하지 않는다. retry를 지원하게 하려면 아래와 같이 `ListenerContainerCustomizer`를 사용하여 batchErrorHandler를 설정할 수 있다. 이 때 spring kafka에서 지원하는 `SeekToCurrentBatchErrorHandler`를 사용할 수 있다. 이 핸들러는 배치 처리 실패시 배치의 첫 오프셋으로 되돌린다.
+
+```
+@Bean
+public ListenerContainerCustomizer<AbstractMessageListenerContainer<KeyType, ValueType>> listenerContainerCustomizer() {
+    return (container, dest, group) -> {
+        SeekToCurrentBatchErrorHandler seekToCurrentBatchErrorHandler = new SeekToCurrentBatchErrorHandler();
+        seekToCurrentBatchErrorHandler.setBackOff(new FixedBackOff());
+        container.setBatchErrorHandler(seekToCurrentBatchErrorHandler);
+    };
+}
+```
+
 #### Set maxAttempts for application failing
 
+* 위에 설명했듯이 retry를 지원하지 않기 때문에 maxAttempts=1(재시도 하지 않음)이 강제적으로 설정된다. batchErrorHandler를 통한 retry는 maxAttempts 설정과 무관하게 동작한다. 따라서 maxAttempts를 설정하려면 별도의 과정을 통해 설정해야 한다.
+
 #### Auto commit
+

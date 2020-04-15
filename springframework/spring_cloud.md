@@ -124,6 +124,7 @@ public ListenerContainerCustomizer<AbstractMessageListenerContainer<KeyType, Val
 #### Set maxAttempts for container stop
 
 * 위에 설명했듯이 retry를 지원하지 않기 때문에 maxAttempts=1(재시도 하지 않음)이 강제적으로 설정된다. batchErrorHandler를 통한 retry는 maxAttempts 설정과 무관하게 동작한다. 따라서 maxAttempts를 구현하려면 batchErrorHandler를 직접 구현해야 한다. spring kafka에서는 `ContainerStoppingBatchErrorHandler`라는 클래스를 통해서 실패시 즉시 종료하는 핸들러를 지원한다. `SeekToCurrentBatchErrorHandler`와 `ContainerStoppingBatchErrorHandler`를 조합한 임의의 클래스를 구현하면 retry + maxAttempts 를 구현할 수 있다.
+* 하지만 `ContainerStoppingBatchErrorHandler` 사용시 애플리케이션이 정상 종료되지 않는 문제가 있음
 
 #### Auto commit
 

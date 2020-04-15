@@ -22,7 +22,7 @@
 
 1. 메시지 처리 과정에서 예외 발생시 spring이 exception을 `IntegrationUtils.wrapInHandlingExceptionIfNecessary`를 통해서 `MessageHandlingException`으로 감싸게 된다. 이 과정에서 전체 메시지가 exception에 포함되어 로그가 매우 길어지게 된다. 이 때 메시지를 customize하고 싶다면 아래와 같이 임의의 message를 포함하는 `MessageHandlingException`으로 감싸서 던지면 된다.
 
-```
+```java
 // build customPayload
 try {
     // 메시지 처리 코드
@@ -33,7 +33,7 @@ try {
 
 2. error channel에서는 loggingHandler bean을 통해서 로그를 찍게 된다. 그런데 이 bean이 `DefaultConfiguringBeanFactoryPostProcessor.registerErrorChannel`에서 직접 생성하기 때문에 생성시 프로퍼티를 주입할 수가 없다. 따라서 애플리케이션의 configuration class에서 아래와 같이 설정했다.
 
-```
+```java
 @Autowired
 @Qualifier(IntegrationContextUtils.ERROR_LOGGER_BEAN_NAME + IntegrationConfigUtils.HANDLER_ALIAS_SUFFIX)
 private LoggingHandler loggingHandler;

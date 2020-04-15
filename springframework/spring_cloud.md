@@ -49,3 +49,7 @@ public void postConstruct() {
     });
 }
 ```
+
+#### Set maxAttempts for application failing
+
+#### Auto commit

@@ -18,9 +18,9 @@
 #### Customize failed message logging
 
 * 메시지 처리 실패시 배치 메시지에 대한 전체 로그가 찍히기 때문에 로그가 매우 길어지게 된다. 따라서 필요한 정보만 출력하도록 수정할 필요가 있다.
-* exception이 발생한 곳과 error channel 이렇게 두 곳에서 로그를 출력한다.
+* exception이 발생한 곳, error channel의 loggingHandler, batchErrorHandler 이렇게 세 곳에서 로그를 출력한다.
 
-1. 메시지 처리 과정에서 예외 발생시 spring이 exception을 `IntegrationUtils.wrapInHandlingExceptionIfNecessary`를 통해서 `MessageHandlingException`으로 감싸게 된다. 이 과정에서 전체 메시지가 exception에 포함되어 로그가 매우 길어지게 된다. 이 때 메시지를 customize하고 싶다면 아래와 같이 임의의 message를 포함하는 `MessageHandlingException`으로 감싸서 던지면 된다.
+1. exception이 발생한 곳 : spring이 exception을 `IntegrationUtils.wrapInHandlingExceptionIfNecessary`를 통해서 `MessageHandlingException`으로 감싸게 된다. 이 과정에서 전체 메시지가 exception에 포함되어 로그가 매우 길어지게 된다. 이 때 메시지를 customize하고 싶다면 아래와 같이 임의의 message를 포함하는 `MessageHandlingException`으로 감싸서 던지면 된다.
 
 ```java
 // build customPayload
@@ -31,7 +31,7 @@ try {
 }
 ```
 
-2. error channel에서는 loggingHandler bean을 통해서 로그를 찍게 된다. 그런데 이 bean이 `DefaultConfiguringBeanFactoryPostProcessor.registerErrorChannel`에서 직접 생성하기 때문에 생성시 프로퍼티를 주입할 수가 없다. 따라서 애플리케이션의 configuration class에서 아래와 같이 설정했다.
+2. error channel의 loggingHandler : error channel에서는 loggingHandler bean을 통해서 로그를 찍게 된다. 그런데 이 bean이 `DefaultConfiguringBeanFactoryPostProcessor.registerErrorChannel`에서 직접 생성하기 때문에 생성시 프로퍼티를 주입할 수가 없다. 따라서 애플리케이션의 configuration class에서 아래와 같이 설정했다.
 
 ```java
 @Autowired
@@ -50,11 +50,13 @@ public void postConstruct() {
 }
 ```
 
+3. batchErrorHandler : spring cloud stream의 batch 모드에서는 기본적으로 실패에 대한 재처리를 하지 않기 때문에 `BatchLoggingErrorHandler`가 default로 등록된다. 즉 batchErrorHandler를 다른 것으로 등록해주면 실패 메시지에 대한 로그를 찍지 않거나 customize할 수 있다.(아래 Support retry 참고)
+
 #### Support retry
 
-* spring cloud stream의 batch 모드에서는 기본적으로 retry를 지원하지 않는다. retry를 지원하게 하려면 아래와 같이 `ListenerContainerCustomizer`를 사용하여 batchErrorHandler를 설정할 수 있다. 이 때 spring kafka에서 지원하는 `SeekToCurrentBatchErrorHandler`를 사용할 수 있다. 이 핸들러는 배치 처리 실패시 배치의 첫 오프셋으로 되돌린다.
+* spring cloud stream의 batch 모드에서는 기본적으로 retry를 지원하지 않는다. retry를 지원하게 하려면 아래와 같이 `ListenerContainerCustomizer`를 사용하여 batchErrorHandler를 설정할 수 있다. 이 때 spring kafka에서 지원하는 `SeekToCurrentBatchErrorHandler`를 사용할 수 있다. 이 핸들러는 배치 처리 실패시 배치의 첫 오프셋으로 되돌린다. 추가적으로 backOff를 설정하면 각 retry 시도마다 sleep을 할 수 있다.
 
-```
+```java
 @Bean
 public ListenerContainerCustomizer<AbstractMessageListenerContainer<KeyType, ValueType>> listenerContainerCustomizer() {
     return (container, dest, group) -> {

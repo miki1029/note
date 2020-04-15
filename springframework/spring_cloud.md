@@ -99,7 +99,11 @@ logging:
   level:
     org.springframework.cloud.stream.messaging.DirectWithAttributesChannel: INFO
     org.springframework.cloud.stream.function.FunctionConfiguration: INFO
+    org.springframework.cloud.stream.binder.BinderErrorChannel: INFO
     org.springframework.cloud.function.context.catalog.BeanFactoryAwareFunctionRegistry: INFO
+    org.springframework.integration.channel.PublishSubscribeChannel: INFO
+    org.springframework.integration.handler.LoggingHandler: INFO
+    org.springframework.integration.handler.BridgeHandler: INFO
 ```
 
 #### Support retry

@@ -11,9 +11,49 @@
 
 ## Spring Cloud Stream Kafka
 
+### Consuming specific partition
+
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/3.0.1.RELEASE/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-configuring-input-bindings-partitioning>
+* 테스트시 용이한 설정, production에서는 kafka가 rebalance를 하도록 설정하는 것이 좋음
+
+```yaml
+spring:
+  cloud:
+    stream:
+      bindings:
+        <bindingName>:
+          consumer:
+            partitioned: true
+      instance-index: 0 # 파티션 번호
+      instance-count: 9 # 총 파티션 수
+      kafka:
+        bindings:
+          <bindingName>:
+            consumer:
+              auto-rebalance-enabled: false
+```
+
 ### Consuming Batches
 
-* https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_consuming_batches
+* <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream-binder-kafka/3.0.1.RELEASE/reference/html/spring-cloud-stream-binder-kafka.html#_consuming_batches>
+
+```yaml
+spring:
+  cloud:
+    stream:
+      bindings:
+        <bindngName>:
+          consumer:
+            batch-mode: true
+      kafka:
+        bindings:
+          <bindingName>:
+            consumer:
+              configuration:
+                max.poll.records: 1000
+                fetch.min.bytes: 1
+                fetch.max.wait.ms: 500
+```
 
 #### Customize failed message logging
 
@@ -52,6 +92,16 @@ public void postConstruct() {
 
 3. batchErrorHandler : spring cloud stream의 batch 모드에서는 기본적으로 실패에 대한 재처리를 하지 않기 때문에 `BatchLoggingErrorHandler`가 default로 등록된다. 즉 batchErrorHandler를 다른 것으로 등록해주면 실패 메시지에 대한 로그를 찍지 않거나 customize할 수 있다.(아래 Support retry 참고)
 
+4. debug level : 로그 레벨이 DEBUG 이하일 경우 추가적인 로깅이 더 찍히게 되는데, 아래 패키지를 INFO 이상으로 설정해주면 된다.
+
+```yaml
+logging:
+  level:
+    org.springframework.cloud.stream.messaging.DirectWithAttributesChannel: INFO
+    org.springframework.cloud.stream.function.FunctionConfiguration: INFO
+    org.springframework.cloud.function.context.catalog.BeanFactoryAwareFunctionRegistry: INFO
+```
+
 #### Support retry
 
 * spring cloud stream의 batch 모드에서는 기본적으로 retry를 지원하지 않는다. retry를 지원하게 하려면 아래와 같이 `ListenerContainerCustomizer`를 사용하여 batchErrorHandler를 설정할 수 있다. 이 때 spring kafka에서 지원하는 `SeekToCurrentBatchErrorHandler`를 사용할 수 있다. 이 핸들러는 배치 처리 실패시 배치의 첫 오프셋으로 되돌린다. 추가적으로 backOff를 설정하면 각 retry 시도마다 sleep을 할 수 있다.
@@ -73,3 +123,5 @@ public ListenerContainerCustomizer<AbstractMessageListenerContainer<KeyType, Val
 
 #### Auto commit
 
+* auto commit이 활성화 되어 있다면 batch consume 하기 전에 이전 오프셋을 알아서 커밋하기 때문에 크게 신경쓰지 않아도 된다. 다만 retry를 별도로 설정하지 않으면 메시지 처리가 실패해도 auto commit이 되니 그 점만 주의하면 된다.
+* `KafkaMessageListenerContainer.pollAndInvoke`

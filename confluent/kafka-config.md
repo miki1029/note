@@ -7,6 +7,7 @@
   * <https://kafka.apache.org/24/documentation/streams/developer-guide/>
 * Log Compaction : <https://kafka.apache.org/documentation.html#compaction>
   * Hence log compaction is perfectly safe for a KTable (changelog stream) but it is a mistake for a KStream (record stream).
+* Partition 개수 : <https://bistros.tistory.com/entry/%EC%A0%81%EC%A0%95%ED%95%9C-%ED%8C%8C%ED%8B%B0%EC%85%98-%EA%B0%AF%EC%88%98>
 
 # Configurations
 

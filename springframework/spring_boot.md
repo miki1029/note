@@ -20,6 +20,10 @@
 
 * <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-two-datasources>
 
+# Security
+
+* <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-security>
+
 # Test
 
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-testing>

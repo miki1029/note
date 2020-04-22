@@ -33,6 +33,7 @@
 # Actuator
 
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html>
+  * security : <https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-security>
 * <https://docs.spring.io/spring-boot/docs/current/actuator-api/html/>
 
 # Build Plugin

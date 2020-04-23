@@ -2,6 +2,7 @@
 
 * <https://cloud.spring.io/spring-cloud-static/Hoxton.SR3/reference/html/spring-cloud.html>
 * <https://cloud.spring.io/spring-cloud-static/Hoxton.SR3/reference/html/spring-cloud-hoxton-configprops.html>
+* <https://cloud.spring.io/spring-cloud-static/Hoxton.SR3/reference/htmlsingle/>
 
 # Spring Cloud OpenFeign
 

@@ -4,6 +4,10 @@
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/>
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features>
 
+# dependencies
+
+* <https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/appendix-dependency-versions.html>
+
 # Starter
 
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter>

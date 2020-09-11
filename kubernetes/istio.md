@@ -39,4 +39,4 @@
 
 * <https://istio.io/latest/docs/concepts/observability/>
 * 강력한 추적, 모니터링, 로깅
-* 
+* 커스텀 대시보드

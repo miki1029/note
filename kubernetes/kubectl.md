@@ -21,7 +21,7 @@ deploy deployments
 replicasets rs
 statefulesets sts
 ingresses ing
-nodes no
+nodes node no
 
 --namespace -n
 ```
@@ -36,7 +36,8 @@ k config current-context
 k config get-contexts
 k cluster-info
 k describe po [<pod-name>]
-k describe nodes [<context-name>]
+k describe no [<context-name>]
+k describe no
 
 # 현재 상태 변경
 k config use-context <context-name>

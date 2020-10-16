@@ -65,6 +65,7 @@ k get pvc
 k get pv
 k get sc
 
+# IP, NODE, NOMINATED NODE, READINESS GATES
 k get po -o wide
 
 # get pods options

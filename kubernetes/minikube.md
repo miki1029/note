@@ -87,5 +87,6 @@ minikube service {service-name}
 minikube dashboard
 
 # kubectl (버전 호환용)
+minikube kubectl -- <명령어>
 minikube kubectl -- get pods -A
 ```

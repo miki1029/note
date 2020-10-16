@@ -85,4 +85,7 @@ minikube service {service-name}
 
 # 대시보드
 minikube dashboard
+
+# kubectl (버전 호환용)
+minikube kubectl -- get pods -A
 ```

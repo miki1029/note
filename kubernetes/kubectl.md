@@ -185,3 +185,5 @@ $ echo 'source <(kubectl completion zsh)' >> ~/.zshrc
 $ echo 'alias k=kubectl' >> ~/.zshrc
 $ echo 'complete -F __start_kubectl k' >> ~/.zshrc
 ```
+
+* 현재 컨텍스트와 네임스페이스를 표시 : <https://github.com/superbrothers/zsh-kubectl-prompt>

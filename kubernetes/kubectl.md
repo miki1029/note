@@ -11,17 +11,17 @@
 k api-resources
 
 k kubectl
-rc replicationcontroller
+rc replicationcontrollers
 po pods
 svc services
 pvc persistentvolumeclaims
 pv persistentvolumes
 sc storageclasses
 deploy deployments
-replicasets rs
-statefulesets sts
-ingresses ing
-nodes node no
+rs replicasets
+sts statefulesets
+ing ingresses
+no nodes node
 
 --namespace -n
 ```

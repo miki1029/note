@@ -94,7 +94,7 @@ docker run busybox echo "hello world"
 docker run --name <conainer-name> -p <local-port>:<container-port> -d <image>
 
 # exec
-docker exec -it <container-name> bash
+docker exec -it <container-name> bash # i: STDIN / t: pseudo terminal(TTY)
 
 # stop
 docker stop <container-name>

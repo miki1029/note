@@ -3,3 +3,4 @@ kind: Namespace
 metadata:
   name: custom-namespace
 # k create -f custom-namespace.yaml
+# k create namespace custom-namespace # 파일 없이

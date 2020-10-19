@@ -122,7 +122,8 @@ k annotate pod <pod> <key>="<value with whitespace>"
 
 ```
 k delete po --all
-k delete all --all # 시크릿 등 특정 리소스는 지우지 않음
+k delete all --all # 현재 네임스페이스 한정 / 시크릿 등 특정 리소스는 지우지 않음
+k delete ns <namespace>
 ```
 
 #### replicationcontroller

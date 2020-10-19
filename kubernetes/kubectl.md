@@ -38,6 +38,7 @@ k cluster-info
 k describe po [<pod-name>]
 k describe no [<context-name>]
 k describe no
+k explain po.spec
 
 # 현재 상태 변경
 k config use-context <context-name>

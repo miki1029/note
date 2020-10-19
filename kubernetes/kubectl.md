@@ -101,18 +101,18 @@ k delete ns <namespace>
 
 ```
 # 라벨 생성
-k label <object> <pod> <key>=<value>
+k label <resource> <name> <key>=<value>
 k label po <pod> <key>=<value>
 k label no <node> <key>=<value>
 
 # 라벨 변경시 --overwrite 옵션 추가
-k label <object> <pod> <key>=<value> --overwrite
-```
+k label <resource> <name> <key>=<value> --overwrite
+``` 
 
 ### 주석 (annotate)
 
 ```
-k annotate <object> <pod> <key>=<value>
+k annotate <resource> <name> <key>=<value>
 k annotate pod <pod> <key>="<value with whitespace>"
 ```
 

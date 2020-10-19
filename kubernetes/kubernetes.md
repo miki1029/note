@@ -31,3 +31,7 @@ spec:
   * pod template
   * replicas 복제본 수
   * label selector와 pod template의 변경은 기존 pod에 영향을 미치지 않는다.
+* Node down 시뮬레이션
+  * sudo ifconfig eth0 down
+  * k get node # NotReady -> Unknown -> pod 생성
+ㅈw

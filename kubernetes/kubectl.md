@@ -49,11 +49,6 @@ k config set-context --current --namespace=default
 k config set-context minikube --namespace=default
 ```
 
-```
-export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=jenkins" -o jsonpath="{.items[0].metadata.name}")
-kubectl --namespace default port-forward $POD_NAME 8080:8080
-```
-
 ### get
 
 ```
@@ -157,6 +152,11 @@ k expose rc kubia --type=LoadBalancer --name kubia-http
 minikube service kubia-http
 
 k port-forward (pod) (local port):(pod port)
+```
+
+```
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=jenkins" -o jsonpath="{.items[0].metadata.name}")
+kubectl --namespace default port-forward $POD_NAME 8080:8080
 ```
 
 ### Pod, Container 관리

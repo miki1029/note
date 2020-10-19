@@ -187,6 +187,7 @@ k exec -it <pod-name> <command>
 ```
 k logs (pod)
 k logs (pod) -c (container)
+k logs (pod) --previous
 ```
 
 ## 자동 완성

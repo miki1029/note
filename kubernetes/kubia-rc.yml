@@ -5,10 +5,9 @@ metadata:
 spec:
   replicas: 3
   selector:
-    app: kubiax
+    app: kubia
   template:
     metadata:
-      name: kubia
       labels:
         app: kubia
     spec:

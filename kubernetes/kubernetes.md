@@ -55,6 +55,10 @@ spec:
 * 환경 변수로 컨테이너에 전달 가능
 * 볼륨의 파일로 노출 가능
 * automountService-AccountToken 필드 또는 pod이 사용하는 서비스 계정 설정으로 비활성화 가능
+* Base64로 인코딩
+  * yml, json으로 작성하기가 어려움
+  * 최대 크기 1MB 제한
+  * stringData 필드를 통해 비바이너리 형태의 시크릿을 쉽게 작성할 수 있다. 조회하면 Base64 인코딩된 포맷의 data로 조회됨.
 
 ```
 $ k exec <pod-name> -- ls /var/run/secrets/kubernetes.io/serviceaccount                                                                                
@@ -62,3 +66,28 @@ ca.crt
 namespace
 token
 ```
+
+```
+$ vim my-secret.yml
+kind: Secret
+apiVersion: v1
+metadata:
+  name: my-secret
+stringData:
+  foo: plain text
+$ k create -f my-secret.yml
+$ k get secrets my-secret -o yaml                                                                                                                       (minikube/default)
+apiVersion: v1
+data:
+  foo: cGxhaW4gdGV4dA==
+kind: Secret
+metadata:
+  creationTimestamp: "2020-10-20T07:00:40Z"
+  name: my-secret
+  namespace: default
+  resourceVersion: "445409"
+  selfLink: /api/v1/namespaces/default/secrets/my-secret
+  uid: 99efa69a-a24b-4e65-b025-403ea7dd5add
+type: Opaque
+```
+

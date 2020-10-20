@@ -34,4 +34,8 @@ spec:
 * Node down 시뮬레이션
   * sudo ifconfig eth0 down
   * k get node # NotReady -> Unknown -> pod 생성
-ㅈw
+
+### Secret
+
+* 환경 변수로 컨테이너에 전달 가능
+* 볼륨의 파일로 노출 가능

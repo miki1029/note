@@ -178,8 +178,10 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 #### exec
 
 ```
-k exec pod/<pod-name> -c <container-name> -it -- /bin/bash
-k exec -it <pod-name> <command>
+k exec <pod-name> -- <command>
+k exec <pod-name> -it -- bash
+k exec <pod-name> -c <container-name> -it -- /bin/bash
+k exec <pod-name> -- ls -al
 ```
 
 #### logs

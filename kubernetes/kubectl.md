@@ -175,6 +175,23 @@ k logs (pod) -c (container)
 k logs (pod) --previous
 ```
 
+### configmap
+
+```
+```
+
+### secret
+
+```
+# generic
+k create secret generic <secret-name> --from-file=<file>
+k create secret generic fortune-https --from-file=https.key --from-file=https.cert --from-file=foo
+
+# tls
+k create secret tls <secret-name> --cert=<file> --key=<file>
+k create secret tls fortune-tls --cert=https.cert --key=https.key
+```
+
 ## 자동 완성
 
 * kubectl 자동완성 및 alias : <https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion>

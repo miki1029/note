@@ -52,22 +52,24 @@ spec:
 
 ### Secret
 
-* 환경 변수로 컨테이너에 전달 가능
-* 볼륨의 파일로 노출 가능
-* automountService-AccountToken 필드 또는 pod이 사용하는 서비스 계정 설정으로 비활성화 가능
+* 시크릿 노출
+  * 환경 변수로 컨테이너에 전달 가능
+  * 볼륨의 파일로 노출 가능
+* automountService-AccountToken 필드 또는 pod이 사용하는 서비스 계정 설정으로 노출 비활성화 가능
 * Base64로 인코딩
   * yml, json으로 작성하기가 어려움
   * 최대 크기 1MB 제한
   * stringData 필드를 통해 비바이너리 형태의 시크릿을 쉽게 작성할 수 있다. 조회하면 Base64 인코딩된 포맷의 data로 조회됨.
+  * pod에서 사용시에는 디코딩할 필요가 없다.
 
-```
+```bash
 $ k exec <pod-name> -- ls /var/run/secrets/kubernetes.io/serviceaccount                                                                                
 ca.crt
 namespace
 token
 ```
 
-```
+```bash
 $ vim my-secret.yml
 kind: Secret
 apiVersion: v1
@@ -90,4 +92,3 @@ metadata:
   uid: 99efa69a-a24b-4e65-b025-403ea7dd5add
 type: Opaque
 ```
-

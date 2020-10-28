@@ -38,7 +38,7 @@ $ kafka-consumer-groups\
   --execute
 ```
 
-to-ealiest 부분에 대신 사용할 수 있는 옵션들
+to-earliest 부분에 대신 사용할 수 있는 옵션들
 
 ```
 --shift-by <Long: number-of-offsets> 형식 (+/- 모두 가능)

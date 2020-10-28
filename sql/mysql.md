@@ -27,7 +27,10 @@ public void setTimestamp(int parameterIndex, Timestamp x, Calendar targetCalenda
 }
 ```
 
-결론
+결론 (검증 필요...)
 * serverTimezone 파라미터는 사용하지 않는다.
 * mysql server는 각 국가의 timezone으로 실행한다.(사실 이 부분은 UTC로 실행해도 큰 문제는 없습니다. 다만 여러 국가을 위한 DB가 아니라면 각 국가별 timezone을 사용하는 것이 가독성이 좋을 것 같습니다.)
 * app server는 어떤 타임존으로 띄우더라도 mysql로 timestamp 데이터 저장시에는 mysql server의 timezone으로 변환하여 저장하기 때문에 아무런 문제가 없다.
+
+utf8mb4
+* <https://blog.lael.be/post/917>

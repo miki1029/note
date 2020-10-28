@@ -1,4 +1,4 @@
-# mysql driver의 serverTimezone의 역할
+## mysql driver의 serverTimezone의 역할
 
 jpa에서 OffsetDateTime을 사용하면 이는 mysql driver 단에서 java.sql.Timestamp로 변환되어 사용됩니다.
 즉, 현재 serverTimezone에 따라서 다르게 저장되는 부분은 jpa와 관계가 없으며 java.sql.Timestamp를 파라미터로 사용하는 PreparedStatement를 사용시 영향이 있습니다.
@@ -32,5 +32,7 @@ public void setTimestamp(int parameterIndex, Timestamp x, Calendar targetCalenda
 * mysql server는 각 국가의 timezone으로 실행한다.(사실 이 부분은 UTC로 실행해도 큰 문제는 없습니다. 다만 여러 국가을 위한 DB가 아니라면 각 국가별 timezone을 사용하는 것이 가독성이 좋을 것 같습니다.)
 * app server는 어떤 타임존으로 띄우더라도 mysql로 timestamp 데이터 저장시에는 mysql server의 timezone으로 변환하여 저장하기 때문에 아무런 문제가 없다.
 
-utf8mb4
+## utf8mb4
+
 * <https://blog.lael.be/post/917>
+* <https://blog.naver.com/seuis398/220851196727>

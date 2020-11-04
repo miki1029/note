@@ -7,6 +7,7 @@
 # dependencies
 
 * <https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/appendix-dependency-versions.html>
+* <https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/appendix-dependency-versions.html>
 
 # Starter
 

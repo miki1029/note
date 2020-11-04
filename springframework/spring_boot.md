@@ -8,12 +8,12 @@
 
 * <https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/appendix-dependency-versions.html>
 * <https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/appendix-dependency-versions.html>
+* <https://docs.confluent.io/current/installation/versions-interoperability.html>
 
 # Starter
 
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter>
 * <https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters>
-* <https://docs.confluent.io/current/installation/versions-interoperability.html>
 
 # Configuration
 

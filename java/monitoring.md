@@ -26,3 +26,7 @@
 * 부하 도구
   * 부하 테스트 도구 : gatling, jmeter
   * concurrent 부하 점검 : jcstress
+
+# Reference
+
+* <http://egloos.zum.com/sseam/v/7465658>

@@ -30,3 +30,4 @@
 # Reference
 
 * <http://egloos.zum.com/sseam/v/7465658>
+* <https://jupiny.com/2019/07/15/java-heap-dump-analysis/>

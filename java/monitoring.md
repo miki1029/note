@@ -1,5 +1,9 @@
 # Monitoring
 
+```
+jinfo <pid> | grep jvm_args
+```
+
 ## JVM 진단 도구
 
 * 실시간 진단 도구
@@ -31,7 +35,4 @@
 
 * <http://egloos.zum.com/sseam/v/7465658>
 * <https://jupiny.com/2019/07/15/java-heap-dump-analysis/>
-
-```
-jinfo <pid> | grep jvm_args
-```
+* <https://ktdsoss.tistory.com/438>

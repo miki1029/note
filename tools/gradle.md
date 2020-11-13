@@ -34,6 +34,10 @@
 
 # jib
 
+* <https://github.com/GoogleContainerTools/jib>
+* <https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin>
+* <https://github.com/GoogleContainerTools/jib/tree/master/examples/multi-module>
+* <https://github.com/GoogleContainerTools/jib/blob/master/docs/faq.md>
 * <https://browndwarf.tistory.com/46>
 
 # grgit

@@ -28,6 +28,10 @@
 * <https://docs.freefair.io/gradle-plugins/4.1.6/reference/#_lombok>
 * <https://stackoverflow.com/questions/55251456/gradle-maven-publish-to-nexus-delombok-source-code/55648798>
 
+# jib
+
+* <https://browndwarf.tistory.com/46>
+
 ```
 ./gradlew build --refresh-dependencies -x test
 ```

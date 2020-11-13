@@ -4,6 +4,9 @@
 
 * <https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_tasks>
 * <https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/gradle-plugin/reference/html/>
+* <https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/gradle-plugin/reference/html/>
+* <https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/>
+* <https://blog.leocat.kr/notes/2020/01/23/gradle-create-executable-jar-with-spring-boot>
 
 # dependency
 

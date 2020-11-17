@@ -1,6 +1,10 @@
 # Monitoring
 
 ```
+jps -v
+jstat -gcutil -t -h10 <pid> 5s
+jhsdb jmap --pid <pid>
+jmap -histo:live <pid> | more
 jinfo <pid> | grep jvm_args
 ```
 
@@ -36,3 +40,4 @@ jinfo <pid> | grep jvm_args
 * <http://egloos.zum.com/sseam/v/7465658>
 * <https://jupiny.com/2019/07/15/java-heap-dump-analysis/>
 * <https://ktdsoss.tistory.com/438>
+* <https://m.blog.naver.com/PostView.nhn?blogId=wideeyed&logNo=221071907919&categoryNo=24&proxyReferer=&proxyReferer=https:%2F%2Fwww.google.com%2F>

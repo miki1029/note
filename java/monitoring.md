@@ -2,10 +2,21 @@
 
 ```
 jps -v
-jstat -gcutil -t -h10 <pid> 5s
+
 jhsdb jmap --pid <pid>
 jmap -histo:live <pid> | more
 jinfo <pid> | grep jvm_args
+
+# jstat
+jstat --option $PID $MILLISECOND_INTERVAL $COUNT
+jstat -gc <pid> 1000 3
+jstat -gcutil -t -h10 <pid> 5s
+
+# jstat used
+jstat -gc 1 1000 3 | tail -n 3 | awk '{split($0,a," "); sum=a[3]+a[4]+a[6]+a[8]; print "used: " sum}'
+
+# jstat used, total
+jstat -gc 1 1000 3 | tail -n 3 | awk '{split($0,a," "); total=a[1]+a[2]+a[5]+a[7];sum=a[3]+a[4]+a[6]+a[8]; print "used: " sum ", total: " total}'
 ```
 
 ## JVM 진단 도구
@@ -41,3 +52,4 @@ jinfo <pid> | grep jvm_args
 * <https://jupiny.com/2019/07/15/java-heap-dump-analysis/>
 * <https://ktdsoss.tistory.com/438>
 * <https://m.blog.naver.com/PostView.nhn?blogId=wideeyed&logNo=221071907919&categoryNo=24&proxyReferer=&proxyReferer=https:%2F%2Fwww.google.com%2F>
+* <https://gem1n1.tistory.com/89> 굿

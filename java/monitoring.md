@@ -53,3 +53,4 @@ jstat -gc 1 1000 3 | tail -n 3 | awk '{split($0,a," "); total=a[1]+a[2]+a[5]+a[7
 * <https://ktdsoss.tistory.com/438>
 * <https://m.blog.naver.com/PostView.nhn?blogId=wideeyed&logNo=221071907919&categoryNo=24&proxyReferer=&proxyReferer=https:%2F%2Fwww.google.com%2F>
 * <https://gem1n1.tistory.com/89> 굿
+* <https://spoqa.github.io/2012/02/06/eclipse-mat.html>

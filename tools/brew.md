@@ -17,7 +17,7 @@ brew uninstall <package>
 # 버전 관리
 brew update
 brew upgrade
-brew cask upgrade
+brew upgrade --cask
 
 # brew link 버전 변경
 brew unlink <old-package>

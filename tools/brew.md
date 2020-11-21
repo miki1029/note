@@ -22,6 +22,11 @@ brew upgrade --cask
 # brew link 버전 변경
 brew unlink <old-package>
 brew link <new-package>
+
+# brew tap
+brew tap mongodb/brew
+brew tap superbrothers/zsh-kubectl-prompt
+brew tap AdoptOpenJDK/openjdk
 ```
 
 ## 문제점

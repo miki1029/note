@@ -8,7 +8,7 @@ brew help
 # 정보 출력
 ## 설치된 패키지
 brew list
-brew cask list
+brew list --cask
 
 # 설치 및 제거
 brew install <package>

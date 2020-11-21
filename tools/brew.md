@@ -10,6 +10,9 @@ brew help
 brew list
 brew list --cask
 
+## information
+brew info <package>
+
 # 설치 및 제거
 brew install <package>
 brew uninstall <package>

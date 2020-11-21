@@ -195,6 +195,7 @@ k create secret tls fortune-tls --cert=https.cert --key=https.key
 ## 자동 완성
 
 * kubectl 자동완성 및 alias : <https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion>
+* <https://kubernetes.io/ko/docs/tasks/tools/install-kubectl/#%EC%85%B8-%EC%9E%90%EB%8F%99-%EC%99%84%EC%84%B1-%ED%99%9C%EC%84%B1%ED%99%94>
 
 ```bash
 $ echo 'source <(kubectl completion zsh)' >> ~/.zshrc

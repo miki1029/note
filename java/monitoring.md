@@ -19,6 +19,11 @@ jstat -gc 1 1000 3 | tail -n 3 | awk '{split($0,a," "); sum=a[3]+a[4]+a[6]+a[8];
 jstat -gc 1 1000 3 | tail -n 3 | awk '{split($0,a," "); total=a[1]+a[2]+a[5]+a[7];sum=a[3]+a[4]+a[6]+a[8]; print "used: " sum ", total: " total}'
 ```
 
+## MAT
+
+* <https://www.eclipse.org/mat/downloads.php>
+* <https://stackoverflow.com/questions/52652846/cant-install-eclipse-failed-to-create-the-java-virtual-machine-on-mac>
+
 ## JVM 진단 도구
 
 * 실시간 진단 도구

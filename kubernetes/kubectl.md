@@ -216,4 +216,14 @@ source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 ```
 
+* ktx, kns
+
+```bash
+$ vim ~/.bash_profile
+# kube
+alias k=kubectl
+alias kns='kubectl config set-context $(kubectl config current-context) --namespace'
+alias ktx='kubectl config use-context'
+```
+
 * <https://github.com/ahmetb/kubectx>

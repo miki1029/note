@@ -208,6 +208,12 @@ $ echo 'complete -F __start_kubectl k' >> ~/.zshrc
 ```bash
 $ brew tap superbrothers/zsh-kubectl-prompt
 $ brew install zsh-kubectl-prompt
+$ vim ~/.zshrc
+
+# zsh-kubectl-prompt
+autoload -U colors; colors
+source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
+RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 ```
 
 * <https://github.com/ahmetb/kubectx>

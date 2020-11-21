@@ -198,9 +198,21 @@ k create secret tls fortune-tls --cert=https.cert --key=https.key
 * <https://kubernetes.io/ko/docs/tasks/tools/install-kubectl/#%EC%85%B8-%EC%9E%90%EB%8F%99-%EC%99%84%EC%84%B1-%ED%99%9C%EC%84%B1%ED%99%94>
 
 ```bash
-$ echo 'source <(kubectl completion zsh)' >> ~/.zshrc
-$ echo 'alias k=kubectl' >> ~/.zshrc
-$ echo 'complete -F __start_kubectl k' >> ~/.zshrc
+$ vim ~/.zshrc
+
+# kubectl
+source <(kubectl completion zsh)
+alias k=kubectl
+complete -F __start_kubectl k
+```
+
+* ktx, kns
+
+```bash
+$ vim ~/.zshrc
+# ktx, kns
+alias kns='kubectl config set-context $(kubectl config current-context) --namespace'
+alias ktx='kubectl config use-context'
 ```
 
 * 현재 컨텍스트와 네임스페이스를 표시 : <https://github.com/superbrothers/zsh-kubectl-prompt>
@@ -214,16 +226,6 @@ $ vim ~/.zshrc
 autoload -U colors; colors
 source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
-```
-
-* ktx, kns
-
-```bash
-$ vim ~/.bash_profile
-# kube
-alias k=kubectl
-alias kns='kubectl config set-context $(kubectl config current-context) --namespace'
-alias ktx='kubectl config use-context'
 ```
 
 * <https://github.com/ahmetb/kubectx>

@@ -17,6 +17,9 @@ jstat -gc 1 1000 3 | tail -n 3 | awk '{split($0,a," "); sum=a[3]+a[4]+a[6]+a[8];
 
 # jstat used, total
 jstat -gc 1 1000 3 | tail -n 3 | awk '{split($0,a," "); total=a[1]+a[2]+a[5]+a[7];sum=a[3]+a[4]+a[6]+a[8]; print "used: " sum ", total: " total}'
+
+# ps
+ps -eo user,pid,ppid,rss,size,vsize,pmem,pcpu,time,cmd --sort -rss
 ```
 
 ## MAT

@@ -1,3 +1,8 @@
+# GC
+
+* <https://johngrib.github.io/wiki/java-g1gc/>
+* <https://findanyanswer.com/does-g1gc-stop-the-world>
+
 # Monitoring
 
 ```

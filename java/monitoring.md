@@ -3,6 +3,7 @@
 * <https://johngrib.github.io/wiki/java-g1gc/>
 * <https://findanyanswer.com/does-g1gc-stop-the-world>
 * <https://d2.naver.com/helloworld/37111>
+* <https://brunch.co.kr/@alden/45>
 
 # Monitoring
 

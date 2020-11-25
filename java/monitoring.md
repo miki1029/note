@@ -7,6 +7,10 @@
 * <https://stackoverflow.com/questions/53451103/java-using-much-more-memory-than-heap-size-or-size-correctly-docker-memory-limi>
 * <https://www.holaxprogramming.com/2017/10/09/java-jvm-performance/>
 
+# Connection pool
+
+* <https://jaehun2841.github.io/2020/01/27/2020-01-27-hikaricp-maximum-pool-size-tuning/#%ED%95%98%EB%82%98%EC%9D%98-query%EA%B0%80-%EC%8B%A4%ED%96%89%EB%90%98%EB%8A%94-%EA%B3%BC%EC%A0%95>
+
 # Monitoring
 
 ```

@@ -17,7 +17,7 @@
 
 # Monitoring
 
-* jstat <https://5dol.tistory.com/182>
+* jstat <https://5dol.tistory.com/182> <https://118k.tistory.com/817>
 
 ```
 jps -v

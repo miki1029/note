@@ -17,6 +17,8 @@
 
 # Monitoring
 
+* jstat <https://5dol.tistory.com/182>
+
 ```
 jps -v
 

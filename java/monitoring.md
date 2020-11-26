@@ -40,8 +40,11 @@ jstat -gc 1 1000 3 | tail -n 3 | awk '{split($0,a," "); total=a[1]+a[2]+a[5]+a[7
 # ps
 ps -eo user,pid,ppid,rss,size,vsize,pmem,pcpu,time,cmd --sort -rss
 
-# -XX:NativeMemoryTracking=summary
+# -XX:NativeMemoryTracking=summary -XX:NativeMemoryTracking=detail
 jcmd 1 VM.native_memory summary
+jcmd 1 VM.native_memory detail
+jcmd 1 VM.native_memory summary baseline
+jcmd 1 VM.native_memory summary.diff
 ```
 
 ## MAT

@@ -125,6 +125,8 @@ k annotate pod <pod> <key>="<value with whitespace>"
 k delete po --all
 k delete all --all # 현재 네임스페이스 한정 / 시크릿 등 특정 리소스는 지우지 않음
 k delete ns <namespace>
+k delete rc <rc> --cascade=false # pod은 지우지 않음
+
 k get jobs -o go-template --template '{{range .items}}{{.metadata.name}} {{.metadata.creationTimestamp}}{{"\n"}}{{end}}' | awk '$2 <= "2020-11-01T09:00:00,000000000Z" { print $1 }' | xargs k delete jobs
 ```
 

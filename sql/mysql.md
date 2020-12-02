@@ -36,3 +36,7 @@ public void setTimestamp(int parameterIndex, Timestamp x, Calendar targetCalenda
 
 * <https://blog.lael.be/post/917>
 * <https://blog.naver.com/seuis398/220851196727>
+
+## type
+
+* <https://honsal.blogspot.com/2017/04/mysql-java.html>

@@ -90,6 +90,13 @@ k get no -l <key>=<value>
 k delete po -l <key>=<value>
 ```
 
+* advanced
+
+```
+k get deploy <deployment> -o=jsonpath='{.spec.template.spec.nodeSelector}'
+k get po --all-namespaces -o wide --field-selector spec.nodeName=<nodeName>
+```
+
 ### namespace
 
 ```

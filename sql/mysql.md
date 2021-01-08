@@ -40,3 +40,7 @@ public void setTimestamp(int parameterIndex, Timestamp x, Calendar targetCalenda
 ## type
 
 * <https://honsal.blogspot.com/2017/04/mysql-java.html>
+
+## index
+
+* 커버링 인덱스 성능 : <https://gywn.net/2012/04/mysql-covering-index/>

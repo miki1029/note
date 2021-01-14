@@ -17,6 +17,7 @@
 
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter>
 * <https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters>
+* <https://supawer0728.github.io/2018/03/15/create-spring-boot-starter/>
 
 # Configuration
 

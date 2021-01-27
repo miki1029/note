@@ -100,6 +100,13 @@ k get deploy <deployment> -o=jsonpath='{.spec.template.spec.nodeSelector}'
 k get po --all-namespaces -o wide --field-selector spec.nodeName=<nodeName>
 ```
 
+### top
+
+```
+k top po
+k top po --containers
+```
+
 ### namespace
 
 ```

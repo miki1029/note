@@ -88,6 +88,9 @@ k get po -l <key1>,<key2>
 # get pod 이외의 예시
 k get no -l <key>=<value>
 k delete po -l <key>=<value>
+
+# 이벤트
+k get events --sort-by=.metadata.creationTimestamp
 ```
 
 * advanced

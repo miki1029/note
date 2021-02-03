@@ -22,6 +22,7 @@ rs replicasets
 sts statefulesets
 ing ingresses
 no nodes node
+crd customresourcedefinitions
 
 --namespace -n
 ```
@@ -91,6 +92,9 @@ k delete po -l <key>=<value>
 
 # 이벤트
 k get events --sort-by=.metadata.creationTimestamp
+
+# 커스텀 리소스
+k get crd
 ```
 
 * advanced

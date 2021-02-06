@@ -40,8 +40,4 @@
 
 # Prometheus
 
-* service discovery
-* 데이터 수집
-* 저장 장치
-
 ![prometheus arthitecture](https://prometheus.io/assets/architecture.png)

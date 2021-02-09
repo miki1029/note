@@ -5,7 +5,16 @@ $ brew install minikube
 $ minikube start
 ```
 
-* 아래처럼 오류 발생시
+# Trouble shooting
+
+* 완전 삭제하기
+
+```
+minikube delete --all --purge
+ls .minikube # 폴더 없음 확인
+```
+
+* virtualbox 관련 오류
 
 ```
 $ brew cask install virtualbox

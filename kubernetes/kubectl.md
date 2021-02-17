@@ -157,21 +157,11 @@ k get jobs -o go-template --template '{{range .items}}{{.metadata.name}} {{.meta
 kubectl drain <node name>
 ```
 
-### replicationcontroller
+### scale, rollout
 
 ```
-# generator=run/v1 deprecated 디플로이먼트 대신 레플리케이션 컨트롤러를 생성하도록 하는 역할
-k run kubia --image=luksa/kubia --port=8080 --generator=run/v1
-# 대안 : k apply -f kubia-rc.yml
-
 k scale rc kubia --replicas=3
-
-k delete rc kubia
-```
-
-### deployment
-
-```
+k scale rs kubia --replicas=3
 k rollout restart deployment/<name>
 ```
 

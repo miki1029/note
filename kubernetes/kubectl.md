@@ -164,7 +164,14 @@ kubectl drain <node name>
 ```
 k scale rc kubia --replicas=3
 k scale rs kubia --replicas=3
-k rollout restart deployment/<name>
+k rollout status deployment <name>
+k rollout restart deployment <name>
+k rollout pause deployment <name>
+k rollout resume deployment <name>
+k rollout history deployment <name>
+k rollout history deployment <name> --revision 3
+k rollout undo deployments <name>
+k rollout undo deployments <name> --to-revision 3
 ```
 
 ### expose, port-forward (외부 노출)

@@ -11,20 +11,21 @@
 k api-resources
 
 k kubectl
-rc replicationcontrollers
 po pods
+rc replicationcontrollers
+rs replicasets
+ds daemonsets
+deploy deployments
 svc services
 pvc persistentvolumeclaims
 pv persistentvolumes
 sc storageclasses
-deploy deployments
-rs replicasets
 sts statefulesets
 ing ingresses
 no nodes node
 crd customresourcedefinitions
 
---namespace -n
+-n --namespace
 ```
 
 ## 명령어

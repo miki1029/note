@@ -109,6 +109,7 @@ k get po --all-namespaces -o wide --field-selector spec.nodeName=<nodeName>
 ```
 k top po
 k top po --containers
+k top no
 ```
 
 ### namespace
@@ -130,7 +131,7 @@ k label no <node> <key>=<value>
 k label <resource> <name> <key>=<value> --overwrite
 ``` 
 
-### 주석 (annotate)
+### annotate
 
 ```
 k annotate <resource> <name> <key>=<value>
@@ -165,7 +166,7 @@ k scale rs kubia --replicas=3
 k rollout restart deployment/<name>
 ```
 
-### 외부 노출
+### expose, port-forward (외부 노출)
 
 ```
 # 레플리케이션 컨트롤러를 서비스로 노출하고 EXTERNAL-IP를 받아옴

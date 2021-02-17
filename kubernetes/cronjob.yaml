@@ -4,6 +4,7 @@ metadata:
   name: batch-job-every-fifteen-minutes
 spec:
   schedule: "0,15,30,45 * * * *" # 분 시간 일 월 요일(0:일요일)
+  startingDeadlineSeconds: 15
   jobTemplate:
     spec:
       template:

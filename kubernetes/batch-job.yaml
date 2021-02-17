@@ -3,6 +3,10 @@ kind: Job
 metadata:
   name: batch-job
 spec:
+  completions: 5 # 5개의 pod을
+  parallelism: 2 # 2개씩 병렬로 실행
+  activeDeadlineSeconds: 3600
+  backoffLimit: 0 # 잡이 실패로 표시되기 전에 다시 시도할 수 있는 횟수(default 6)
   template:
     metadata:
       labels:

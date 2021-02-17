@@ -7,11 +7,11 @@ spec:
   selector:
     matchLabels:
       app: kubia
-#    matchExpressions:
-#      - key: app
-#        operator: In
-#        values:
-#          - kubia
+    matchExpressions:
+      - key: app
+        operator: In # In, NotIn, Exists, DoesNotExist
+        values:
+          - kubia
   template:
     metadata:
       labels:

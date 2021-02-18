@@ -41,3 +41,24 @@
 # Prometheus
 
 ![prometheus arthitecture](https://prometheus.io/assets/architecture.png)
+
+## 계측
+
+* \_total, \_count, \_sum, \_bucket
+
+### 카운터
+
+* 메소드 : inc
+* \_total
+
+### 게이지
+
+* 메소드 : inc, dec, set
+
+### 서머리
+
+* 메소드 : observe
+* \_count, \_sum
+* irate(xxx_count\[5m\]) : 초당 요청 수
+* irate(xxx_sum\[5m\]) : 초당 응답 시간
+* sum / count : 마지막 1분에 

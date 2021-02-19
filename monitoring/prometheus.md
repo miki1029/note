@@ -61,4 +61,14 @@
 * \_count, \_sum
 * irate(xxx_count\[5m\]) : 초당 요청 수
 * irate(xxx_sum\[5m\]) : 초당 응답 시간
-* sum / count : 마지막 1분에 
+* rate(xxx_sum\[5m\]) / rate(xxx_count\[5m\]) : 마지막 5분에 대한 평균 대기시간
+
+### 히스토그램
+
+* 300밀리초의 0.95분위수라고 한다면 요청의 95%는 300초 미만의 시간이 걸린다.
+* 메소드 : observe, time
+* \_bucket
+* 버킷 집합 : 1밀리초, 10밀리초, 25밀리초
+* 각 버킷에 속하는 이벤트 수를 추적
+* histogram_quantile : 버킷들로부터 분위수 계산
+* histogram_quantile(0.95, rate(xxx_bucket\[1m\]))

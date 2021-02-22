@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: kubia
 spec:
+  type: ClusterIP # NodePort, LoadBalancer
   sessionAffinity: None # ClientIP
   ports:
   - name: http

@@ -11,3 +11,7 @@ spec:
         backend:
           serviceName: kubia-nodeport
           servicePort: 80
+      - path: /bar
+        backend:
+          serviceName: bar
+          servicePort: 80

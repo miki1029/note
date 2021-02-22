@@ -102,7 +102,13 @@ k get crd
 
 ```
 k get deploy <deployment> -o=jsonpath='{.spec.template.spec.nodeSelector}'
+
+# 특정 노드의 pod 조회
 k get po --all-namespaces -o wide --field-selector spec.nodeName=<nodeName>
+
+# 모든 노드의 IP
+k get no -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
+k get no -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}'
 ```
 
 ### top

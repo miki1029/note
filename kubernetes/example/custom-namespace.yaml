@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  labels:
+    istio-injection: enabled
   name: custom-namespace
 # k create -f custom-namespace.yaml
 # k create namespace custom-namespace # 파일 없이

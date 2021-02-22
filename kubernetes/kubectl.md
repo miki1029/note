@@ -232,6 +232,11 @@ k create secret tls fortune-tls --cert=https.cert --key=https.key
 # openssl example
 openssl genrsa -out tls.key 2048
 openssl req -new -x509 -key https.key -out https.cert -days 360 -subj
+
+# certificate example
+# CertificateSigningRequest resource
+# 서명된 인증서는 CSR의 status.certificate 필드에서 추출
+k certificate approve <name of the CSR>
 ```
 
 ## 자동 완성

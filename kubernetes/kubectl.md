@@ -228,6 +228,10 @@ k create secret generic fortune-https --from-file=https.key --from-file=https.ce
 # tls
 k create secret tls <secret-name> --cert=<file> --key=<file>
 k create secret tls fortune-tls --cert=https.cert --key=https.key
+
+# openssl example
+openssl genrsa -out tls.key 2048
+openssl req -new -x509 -key https.key -out https.cert -days 360 -subj
 ```
 
 ## 자동 완성

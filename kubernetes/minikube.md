@@ -98,4 +98,8 @@ minikube dashboard
 # kubectl (버전 호환용)
 minikube kubectl -- <명령어>
 minikube kubectl -- get pods -A
+
+# addons
+minikube addons list
+minikube addons enable ingress
 ```

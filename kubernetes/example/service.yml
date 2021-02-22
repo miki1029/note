@@ -5,6 +5,7 @@ metadata:
 spec:
   type: ClusterIP # NodePort, LoadBalancer
   sessionAffinity: None # ClientIP
+  externalTrafficPolicy: Cluster # Local
   ports:
   - name: http
     port: 80

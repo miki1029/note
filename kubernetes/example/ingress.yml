@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1beta1 # networking.k8s.io/v1 로 바뀜 스펙도 바뀌어서 확인 필요
 kind: Ingress
 metadata:
   name: kubia

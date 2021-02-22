@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1 # networking.k8s.io/v1 로 바뀜 스펙도 바뀌어서 확인 필요
+kind: Ingress
+metadata:
+  name: kubia
+spec:
+  tls:
+  - hosts:
+    - kubia.example.com
+    secretName: tls-secret
+  rules:
+  - host: kubia.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubia-nodeport
+          servicePort: 80

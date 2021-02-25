@@ -117,6 +117,12 @@ k get no -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].addre
 k top po
 k top po --containers
 k top no
+
+# node별 조회(CPU 정렬)
+kubectl get po --all-namespaces -o wide | grep <nodeName> | awk '{print $1" "$2}' | xargs -n2 kubectl top po --no-headers -n | sort --key 2 --numeric --reverse
+
+# node별 조회(메모리 정렬)
+kubectl get po --all-namespaces -o wide | grep <nodeName> | awk '{print $1" "$2}' | xargs -n2 kubectl top po --no-headers -n | sort --key 3 --numeric --reverse
 ```
 
 ### namespace

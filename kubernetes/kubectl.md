@@ -4,6 +4,7 @@
 
 * <https://kubernetes.io/ko/docs/reference/>
 * <https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/>
+* <https://kubernetes.io/docs/reference/kubectl/overview/#resource-types>
 
 ## 약어
 

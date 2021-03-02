@@ -18,12 +18,13 @@ spec:
   volumes:
   - name: {volumeName}
     emptyDir: {}
-
+```
+```yaml
 spec:
   volumes:
   - name: {volumeName}
     emptyDir:
-      medium: Memory
+      medium: Memory # tmpfs
 ```
 
 #### gitRepo (deprecated)

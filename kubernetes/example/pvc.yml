@@ -8,5 +8,8 @@ spec:
       storage: 1Gi
   accessModes:
   - ReadWriteOnce # ReadWriteOnce, ReadOnlyMany, ReadWriteMany (Many의 기준은 노드)
+  # 1. default sc 사용 : 명시하지 않으면 됨
+  # 2. sc 미사용
   #storageClassName: ""
+  # 3. sc 지정
   storageClassName: fast

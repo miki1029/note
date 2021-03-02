@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  accessModes:
+  - ReadWriteOnce # ReadWriteOnce, ReadOnlyMany, ReadWriteMany (Many의 기준은 노드)
+  storageClassName: ""

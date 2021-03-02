@@ -8,6 +8,6 @@ spec:
   accessModes: # ReadWriteOnce, ReadOnlyMany, ReadWriteMany (Many의 기준은 노드)
     - ReadWriteOnce
     - ReadOnlyMany
-  persistentVolumeReclaimPolicy: Retain # pvc 삭제시 정책 (Retain, Delete, )
+  persistentVolumeReclaimPolicy: Retain # pvc 삭제시 정책 (Retain, Delete, Recycle) 생성 후 변경 가능
   hostPath: # volume type
     path: /tmp/mongodb

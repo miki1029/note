@@ -31,7 +31,12 @@ spec:
           protocol: TCP
   volumes:
   - name: html
-    # emptyDir: {}
+    # 1. emptydir
+    #emptyDir: {}
+    # 2. emptydir tmpfs
     # 디스크 대신 메모리에 있는 tmpfs 파일 시스템을 사용
     emptyDir:
       medium: Memory
+    # 3. pvc
+    #persistentVolumeClaim:
+    #  claimName: fortune-pvc

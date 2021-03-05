@@ -42,3 +42,4 @@
 * <https://devhicom.tistory.com/4>
 * <https://medium.com/naver-cloud-platform/l4-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-ha-%EA%B5%AC%EC%84%B1%ED%95%B4%EB%B3%B4%EA%B8%B0-2be30aee2b58>
 * <https://tech.kakao.com/2014/05/28/l3dsr/>
+* <https://stackoverflow.com/questions/60276403/kubernetes-pods-graceful-shutdown-with-tcp-connections-spring-boot>

@@ -247,6 +247,9 @@ openssl req -new -x509 -key https.key -out https.cert -days 360 -subj
 # CertificateSigningRequest resource
 # 서명된 인증서는 CSR의 status.certificate 필드에서 추출
 k certificate approve <name of the CSR>
+
+# docker-registry : .dockercfg 파일을 생성 (spec.imagePullSecrets[].name)
+k create secret docker-registry <secret-name> --docker-username=<myusername> --docker-password=<mypassword> --docker-email=<myemail>
 ```
 
 ## 자동 완성

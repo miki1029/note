@@ -108,6 +108,12 @@ spec:
 
 ```yaml
 spec:
+  containers:
+  - image: {imageName}
+    volumeMounts:
+    - name: {volumeName}
+      mountPath: {마운트할 파일명} # 기존 디렉터리 파일들을 삭제하지 않고 개별 파일만 마운트. 단, 이 경우 ConfigMap 업데이트는 수행되지 않음
+      subPath: {filename}
   volumes:
   - name: {volumeName}
     configMap:
@@ -115,6 +121,7 @@ spec:
       items: # 개별 항목만 마운트할 경우에 명시
       - key: {configMapKey}
         path: {filename}
+      defaultMode: "0644" # 기본값 "0644"
 ```
 
 ### PersistentVolume, PersistentVolumeClaim

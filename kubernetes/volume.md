@@ -86,7 +86,8 @@ spec:
   - volumeMounts:
     - name: {volumeName}
       mountPath: {mountPath}
-
+```
+```yaml
 spec:
   volumes:
   - name: {volumeName}
@@ -104,6 +105,17 @@ spec:
 * cinder, cephfs, iscsi, flocker, glusterfs, quobyte, rbd, flexVolume, vsphereVolume, photonPersistentDisk, scaleIO
   * 다른 유형의 네트워크 스토리지
 * configMap, secret, downwardAPI : 특정 쿠버네티스 리소스 및 클러스터 정보를 포드에 노출하는 데 사용되는 특수한 유형의 볼륨 (쿠버네티스의 메타 데이터를 실행)
+
+```yaml
+spec:
+  volumes:
+  - name: {volumeName}
+    configMap:
+      name: {configMapName}
+      items: # 개별 항목만 마운트할 경우에 명시
+      - key: {configMapKey}
+        path: {filename}
+```
 
 ### PersistentVolume, PersistentVolumeClaim
 

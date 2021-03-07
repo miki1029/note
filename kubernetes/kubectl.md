@@ -223,6 +223,9 @@ k logs (pod) --previous
 ### configmap
 
 ```
+k create configmap <configmap-name> --from-literal=<key>=<value>
+k create configmap <configmap-name> --from-file=<filename> # 디렉터리를 지정하면 디렉터리 내의 모든 파일을 등록
+k create configmap <configmap-name> --from-file=<key>=<filename>
 ```
 
 ### secret

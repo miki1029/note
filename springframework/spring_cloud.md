@@ -16,6 +16,7 @@
 
 * <https://spring.io/projects/spring-cloud-circuitbreaker>
 * <https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/>
+* <https://spring.io/guides/gs/circuit-breaker/>
 * <https://blog.naver.com/PostView.nhn?blogId=sharplee7&logNo=221503517533>
 * <https://leejongchan.tistory.com/100>
 

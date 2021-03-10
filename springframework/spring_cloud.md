@@ -7,7 +7,7 @@
 # Spring Cloud OpenFeign
 
 * <https://spring.io/projects/spring-cloud-openfeign>
-* <https://cloud.spring.io/spring-cloud-openfeign/reference/html/>
+* <https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/>
 * <https://github.com/OpenFeign/feign>
 * <https://woowabros.github.io/experience/2019/05/29/feign.html>
 * <https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/>

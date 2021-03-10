@@ -17,6 +17,7 @@
 * <https://spring.io/projects/spring-cloud-circuitbreaker>
 * <https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/>
 * <https://blog.naver.com/PostView.nhn?blogId=sharplee7&logNo=221503517533>
+* <https://leejongchan.tistory.com/100>
 
 # Spring Cloud Stream
 

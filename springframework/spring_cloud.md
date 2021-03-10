@@ -11,6 +11,12 @@
 * <https://woowabros.github.io/experience/2019/05/29/feign.html>
 * <https://supawer0728.github.io/2018/03/11/Spring-Cloud-Feign/>
 
+# Spring Cloud Circuit Breaker
+
+* <https://spring.io/projects/spring-cloud-circuitbreaker>
+* <https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/>
+* <https://blog.naver.com/PostView.nhn?blogId=sharplee7&logNo=221503517533>
+
 # Spring Cloud Stream
 
 * <https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/3.0.0.RELEASE/reference/html/>

@@ -32,3 +32,4 @@ curl https://kubernetes --cacert /var/run/secrets/kubernetes.io/serviceaccount/c
 ### 앰배서더 컨테이너 패턴
 
 * <https://github.com/luksa/kubernetes-in-action/tree/master/Chapter08/kubectl-proxy>
+* <https://github.com/luksa/kubernetes-in-action/blob/master/Chapter08/curl-with-ambassador.yaml>

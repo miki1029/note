@@ -104,5 +104,5 @@ minikube addons list
 minikube addons enable ingress
 
 # swagger
-minikube start --extra-config=apiserver.Features.Enable.SwaggerUI=true
+minikube start --extra-config=apiserver.Features.EnableSwaggerUI=true
 ```

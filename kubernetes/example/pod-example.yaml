@@ -1,3 +1,5 @@
+# https://github.com/luksa/kubernetes-in-action/blob/master/Chapter08/downward-api-env.yaml
+# https://github.com/luksa/kubernetes-in-action/blob/master/Chapter08/downward-api-volume.yaml
 apiVersion: v1
 kind: Pod
 metadata:

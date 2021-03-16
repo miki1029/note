@@ -112,6 +112,12 @@ k get no -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].addre
 k get no -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}'
 ```
 
+### set
+
+```
+k set image deploy <deployment-name> <container-name>=<image>
+```
+
 ### top
 
 ```

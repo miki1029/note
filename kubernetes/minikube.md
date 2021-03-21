@@ -105,4 +105,8 @@ minikube addons enable ingress
 
 # swagger
 minikube start --extra-config=apiserver.Features.EnableSwaggerUI=true
+
+# node
+minikube start --nodes 3 # 신규
+minikube node add # 기존에 클러스터에 추가
 ```

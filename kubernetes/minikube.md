@@ -83,7 +83,7 @@ minikube stop
 
 # Commands
 
-```
+```bash
 # 정보 출력
 minikube status
 minikube service list
@@ -109,4 +109,5 @@ minikube start --extra-config=apiserver.Features.EnableSwaggerUI=true
 # node
 minikube start --nodes 3 # 신규
 minikube node add # 기존에 클러스터에 추가
+minikube ssh -n {node}
 ```

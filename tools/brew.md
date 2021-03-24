@@ -1,5 +1,9 @@
 # Brew
 
+## 자동완성
+
+* <https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh>
+
 ## 명령어
 
 ```

@@ -260,8 +260,7 @@ k create secret docker-registry <secret-name> --docker-username=<myusername> --d
 
 ## 자동 완성
 
-* kubectl 자동완성 및 alias : <https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion>
-* <https://kubernetes.io/ko/docs/tasks/tools/install-kubectl/#%EC%85%B8-%EC%9E%90%EB%8F%99-%EC%99%84%EC%84%B1-%ED%99%9C%EC%84%B1%ED%99%94>
+* kubectl 자동완성 및 alias : <https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-macos/#%EC%85%B8-%EC%9E%90%EB%8F%99-%EC%99%84%EC%84%B1-%ED%99%9C%EC%84%B1%ED%99%94>
 
 ```bash
 $ vim ~/.zshrc
@@ -277,8 +276,8 @@ complete -F __start_kubectl k
 ```bash
 $ vim ~/.zshrc
 # ktx, kns
-alias kns='kubectl config set-context $(kubectl config current-context) --namespace'
 alias ktx='kubectl config use-context'
+alias kns='kubectl config set-context $(kubectl config current-context) --namespace'
 ```
 
 * 현재 컨텍스트와 네임스페이스를 표시 : <https://github.com/superbrothers/zsh-kubectl-prompt>
@@ -291,6 +290,7 @@ $ vim ~/.zshrc
 # zsh-kubectl-prompt
 autoload -U colors; colors
 source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
+# source /opt/homebrew/etc/zsh-kubectl-prompt/kubectl.zsh
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 ```
 

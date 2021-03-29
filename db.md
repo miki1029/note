@@ -21,3 +21,7 @@ select tablespace_name, file_name, online_status from dba_data_files where table
 ```
 <http://oracleocm.tistory.com/entry/오라클-테이블스페이스-위치-변경>  
 <http://goalker.tistory.com/95>  
+
+# MongoDB
+
+* <https://marsettler.com/mongodb/mongodb-study-week-2/>

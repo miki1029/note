@@ -25,3 +25,4 @@ select tablespace_name, file_name, online_status from dba_data_files where table
 # MongoDB
 
 * <https://marsettler.com/mongodb/mongodb-study-week-2/>
+* 일관성 : <http://mongodb.citsoft.net/?page_id=6>

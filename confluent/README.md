@@ -3,7 +3,7 @@
 ## Rebalance skewed leaders
 
 ```
-./kafka-preferred-replica-election --bootstrap-server LNSHPKF1509.nhnjp.ism:9092
+./kafka-preferred-replica-election --bootstrap-server <broker>
 ```
 
 * <https://medium.com/@mandeep309/preferred-leader-election-in-kafka-4ec09682a7c4>

@@ -1,6 +1,6 @@
 # Kafka
 
-## Rebalance
+## Rebalance skewed leaders
 
 ```
 ./kafka-preferred-replica-election --bootstrap-server LNSHPKF1509.nhnjp.ism:9092

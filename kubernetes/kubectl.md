@@ -97,6 +97,9 @@ k get events --sort-by=.metadata.creationTimestamp
 
 # 커스텀 리소스
 k get crd
+
+#
+k get componentstatuses
 ```
 
 * advanced

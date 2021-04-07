@@ -82,6 +82,7 @@ docker ps
 docker ps -a # 중지된 컨테이너까지 모두 출력
 docker inspect <container-name>
 docker logs <container-name>
+docker history <container-name>
 
 # build
 docker build -t <image>[:<tag:latest>] .

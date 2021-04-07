@@ -97,10 +97,11 @@ docker run --name <conainer-name> -p <local-port>:<container-port> -d <image>
 docker exec -it <container-name> bash # i: STDIN / t: pseudo terminal(TTY)
 
 # stop
-docker stop <container-name>
+docker stop <container-name or id>
 
 # rm
 docker rm <container-name>
+docker rmi <image-name>
 
 # tag
 docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]

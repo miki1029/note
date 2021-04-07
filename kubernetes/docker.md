@@ -92,7 +92,7 @@ docker build -t kubia:1.0 .
 docker run <image>[:<tag>] [<command>]
 docker run busybox echo "hello world"
 
-docker run --name <conainer-name> -p <local-port>:<container-port> -d <image>
+docker run --name <conainer-name> -p <local-port>:<container-port> -d <image> --rm
 
 # exec
 docker exec -it <container-name> bash # i: STDIN / t: pseudo terminal(TTY)
@@ -109,6 +109,11 @@ docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 
 # push
 docker push [OPTIONS] NAME[:TAG]
+
+# cp
+docker cp <path> <container>:<path>
+docker cp <container>:<path> <path>
+docker cp <container>:<path> <container>:<path>
 ```
 
 * 이미지가 로컬에 없으면 도커 허브에서 최신 이미지를 다운 받는다.

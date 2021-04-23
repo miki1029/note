@@ -108,7 +108,10 @@ docker rmi <image-name>
 # tag
 docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 
-# push
+# repo
+docker search <image-name>
+docker pull <image-name>
+docker inspect <image-name> # 포트 정보 등 확인 가능
 docker push [OPTIONS] NAME[:TAG]
 
 # cp

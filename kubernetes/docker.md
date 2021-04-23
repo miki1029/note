@@ -95,6 +95,7 @@ docker run busybox echo "hello world"
 
 docker run --name <conainer-name> -p <local-port>:<container-port> -d <image> --rm
 docker run --name <conainer-name> -p <local-port>:<container-port> -d <image> --rm -v <local-path>:<container-path> # volume mount
+docker run --name <conainer-name> -p <local-port>:<container-port> -d <image> --rm -v <local-path>:<container-path>:ro # volume mount
 
 # exec
 docker exec -it <container-name> bash # i: STDIN / t: pseudo terminal(TTY)

@@ -84,6 +84,7 @@ docker ps -a -q # id만 출력
 docker inspect <container-name>
 docker logs <container-name>
 docker history <container-name>
+docker info
 
 # build
 docker build -t <image>[:<tag:latest>] .

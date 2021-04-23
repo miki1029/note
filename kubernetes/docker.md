@@ -80,6 +80,7 @@ latest: digest: sha256:7c91396470ab03d8a2b0de4a83656b58da02aee215fb7a0c0117ac790
 docker images
 docker ps
 docker ps -a # 중지된 컨테이너까지 모두 출력
+docker ps -a -q # id만 출력
 docker inspect <container-name>
 docker logs <container-name>
 docker history <container-name>

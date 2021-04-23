@@ -142,3 +142,8 @@ FROM node:7
 ADD app.js /app.js
 ENTRYPOINT ["node", "app.js"]
 ```
+
+* RUN : 이미지를 빌드할 때
+* CMD : 컨테이너가 실행될 때
+* COPY vs ADD
+* CMD vs ENTRYPOINT

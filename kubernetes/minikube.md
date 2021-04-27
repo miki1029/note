@@ -30,9 +30,10 @@ minikube addons enable ingress
 # swagger
 minikube start --extra-config=apiserver.Features.EnableSwaggerUI=true
 
-# node
+# node https://minikube.sigs.k8s.io/docs/commands/node/
 minikube start --nodes 3 # 신규
 minikube node add # 기존에 클러스터에 추가
+minikube node delete
 minikube ssh -n {node}
 
 # registry https://minikube.sigs.k8s.io/docs/handbook/registry/

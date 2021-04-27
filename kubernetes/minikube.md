@@ -5,6 +5,40 @@ $ brew install minikube
 $ minikube start
 ```
 
+# Commands
+
+```bash
+# 정보 출력
+minikube status
+minikube service list
+
+# 서비스 연결
+# minkube는 로드 밸런서 서비스를 지원하지 않으므로 아래 명령어를 통해서 kube 서비스에 연결이 가능하다.
+minikube service {service-name}
+
+# 대시보드
+minikube dashboard
+
+# kubectl (버전 호환용)
+minikube kubectl -- <명령어>
+minikube kubectl -- get pods -A
+
+# addons
+minikube addons list
+minikube addons enable ingress
+
+# swagger
+minikube start --extra-config=apiserver.Features.EnableSwaggerUI=true
+
+# node
+minikube start --nodes 3 # 신규
+minikube node add # 기존에 클러스터에 추가
+minikube ssh -n {node}
+
+# registry https://minikube.sigs.k8s.io/docs/handbook/registry/
+minikube addons configure registry-creds
+```
+
 # Trouble shooting
 
 * 완전 삭제하기
@@ -79,35 +113,4 @@ $ brew cask install virtualbox
 brew cask install virtualbox
 minikube start
 minikube stop
-```
-
-# Commands
-
-```bash
-# 정보 출력
-minikube status
-minikube service list
-
-# 서비스 연결
-# minkube는 로드 밸런서 서비스를 지원하지 않으므로 아래 명령어를 통해서 kube 서비스에 연결이 가능하다.
-minikube service {service-name}
-
-# 대시보드
-minikube dashboard
-
-# kubectl (버전 호환용)
-minikube kubectl -- <명령어>
-minikube kubectl -- get pods -A
-
-# addons
-minikube addons list
-minikube addons enable ingress
-
-# swagger
-minikube start --extra-config=apiserver.Features.EnableSwaggerUI=true
-
-# node
-minikube start --nodes 3 # 신규
-minikube node add # 기존에 클러스터에 추가
-minikube ssh -n {node}
 ```

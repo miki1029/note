@@ -9,3 +9,4 @@
   * max-wait : 커넥션 할당시 최대 대기 시간
   * time-between-eviction-runs : idle 커넥션 정리 주기
 * <https://developpaper.com/redis-cluster-environment-configuration-of-springboot-series/>
+* lettuce vs jedis : <https://jojoldu.tistory.com/418>

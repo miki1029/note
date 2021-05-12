@@ -10,3 +10,4 @@
   * time-between-eviction-runs : idle 커넥션 정리 주기
 * <https://developpaper.com/redis-cluster-environment-configuration-of-springboot-series/>
 * lettuce vs jedis : <https://jojoldu.tistory.com/418>
+* serializer : <https://mongsil-jeong.tistory.com/25>

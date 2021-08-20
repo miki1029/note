@@ -133,7 +133,7 @@ spec:
   * ReadWriteMany (RWX) : 여러 노드가 읽기/쓰기
 * persistentVolumeReclaimPolicy
   * Retain : 수동 / 다시 사용하려면 PV 리소스를 삭제하고 다시 작성해야 함
-  * Recycle ; 자동 / 볼륨의 내용을 삭제하고 볼륨을 다시 할당할 수 있게 함
+  * Recycle : 자동 / 볼륨의 내용을 삭제하고 볼륨을 다시 할당할 수 있게 함
   * Delete : 자동 / 기본 스토리지를 삭제
 * PV는 클러스터 범위이므로 특정 네임스페이스에서 생성 불가
 * PVC는 특정 네임스페이스에서 생성 가능
@@ -150,7 +150,7 @@ spec:
   capacity:
     storage: 1Gi
   accessModes:
-  - ReadWriteOnece
+  - ReadWriteOnce
   - ReadOnlyMany
   persistentVolumeReclaimPolicy: Retain # 중간에 변경 가능
   gcePersistentDisk:

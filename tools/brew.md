@@ -34,6 +34,8 @@ brew link <new-package>
 brew tap mongodb/brew
 brew tap superbrothers/zsh-kubectl-prompt
 brew tap AdoptOpenJDK/openjdk
+brew tap homebrew/cask-versions
+brew tap mdogan/zulu
 ```
 
 ## 문제점
